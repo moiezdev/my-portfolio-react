@@ -1,0 +1,33 @@
+import Button from '../ui/Button';
+import SectionTitle from '../ui/SectionTitle';
+
+const About = () => {
+  return (
+    <section className="w-full px-4 py-12" id="projects">
+      <div className="app-container mx-auto">
+        <SectionTitle title="about me" />
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="">
+            <h3 className="my-6">Moiz Dev</h3>
+            <p className="mb-6">
+              Hello, i’m Elias! I’m a self-taught front-end developer based in Kyiv, Ukraine. I can
+              develop responsive websites from scratch and raise them into modern user-friendly web
+              experiences.
+            </p>
+            <p className="mb-6">
+              Transforming my creativity and knowledge into a websites has been my passion for over
+              a year. I have been helping various clients to establish their presence online. I
+              always strive to learn about the newest technologies and frameworks.
+            </p>
+            <Button primary={true}>Read More ~~{'>'}</Button>
+          </div>
+          <div className="">
+            <img className="w-full" src="/aboutSection/about-img.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

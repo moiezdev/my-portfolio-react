@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+/* app colors */
+@theme {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-primary: #ffff00;
+  --color-gray-a: #abb2bf;
+  --color-gray-b: #282c33;
+  --color-white: #ffffff;
+
+  /* font sizes */
+  --text-normal: 16px;
+  --text-large: 24px;
+  --text-xlarge: 32px;
+}
+
+/* load your custom TTF font */
+@font-face {
+  font-family: 'FiraCode-VariableFont_wght.ttf';
+  src: url('./assets/fonts/FiraCode-VariableFont_wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+/* make it the default font everywhere */
+html,
+body {
+  font-family: 'FiraCode-VariableFont_wght.ttf', sans-serif;
+  color: var(--color-gray-a); /* 👈 default text color */
+  background-color: var(--color-gray-b);
+  font-size: var(--text-normal);
+  line-height: normal;
+  font-size: 16px;
+}
+
+.app-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
