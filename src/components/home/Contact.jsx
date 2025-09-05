@@ -15,6 +15,18 @@ const Contact = () => {
       url: 'mailto:moiezdev@gmail',
       icon: '/socialMediaIcons/Email.svg',
     },
+    {
+      platform: 'Phone',
+      handle: '+966 573240913',
+      url: 'tel:+966573240913',
+      icon: '/socialMediaIcons/Phone.svg',
+    },
+    {
+      platform: 'Gmail',
+      handle: 'Whatsapp: +966 573240913',
+      url: 'https://wa.me/qr/CCKSULC4NRAZI1',
+      icon: '/socialMediaIcons/Email.svg',
+    },
     // Add more contacts as needed
   ];
   return (
@@ -41,7 +53,7 @@ const Contact = () => {
               ))}
             </div>
           </div>
-          <div className=""></div>
+          <div></div>
         </div>
       </div>
     </section>

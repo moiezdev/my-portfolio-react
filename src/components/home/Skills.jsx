@@ -54,7 +54,7 @@ const Skills = () => {
                         </h2>
                         <div className="flex flex-wrap gap-[8px] p-[8px] mt-0">
                           {skill.items.map((item, idx) => (
-                            <span class="px-2.5 py-0.5 bg-gray-a/20" key={idx}>
+                            <span className="px-2.5 py-0.5 bg-gray-a/20" key={idx}>
                               {item}
                             </span>
                           ))}

@@ -13,7 +13,7 @@ const Card = ({ title, description, techStack, liveLink, image, altText }) => {
         <p className="border-b border-gray-a text-gray-400 p-[8px] flex flex-wrap gap-[8px]">
           {techStack &&
             techStack.map((item, idx) => (
-              <span class="px-2.5 py-0.5 bg-gray-a/20" key={idx}>
+              <span className="px-2.5 py-0.5 bg-gray-a/20" key={idx}>
                 {item}
               </span>
             ))}
