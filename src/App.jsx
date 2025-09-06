@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    document.title = 'MoizDev | Portfolio';
+    document.title = 'MoiezDev | Portfolio';
   });
   return (
     <Router>
