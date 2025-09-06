@@ -9,7 +9,7 @@ const Projects = () => {
       <div className="app-container mx-auto pt-[80px] md:py-[60px]">
         {/* component title */}
         <SectionTitle hash={'/'} title="projects" buttonText="View all" link="/projects" />
-        <p className="mt-[-20px] mb-[50px]">List of my projects</p>
+        <p className="mt-[-20px] mb-[50px]">List of projects</p>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Example Card component usage */}
           {projects.map((project, index) => (
