@@ -16,13 +16,15 @@ function App() {
         {/* Navbar (optional) */}
         {/* <Navbar /> */}
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* <Route path="/about" element={<About />} /> */}
-          <Route path="/projects" element={<Projects />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
+        <div className="relative z-0">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            {/* <Route path="/about" element={<About />} /> */}
+            <Route path="/works" element={<Projects />} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
+            {/* <Route path="*" element={<NotFound />} /> */}
+          </Routes>
+        </div>
         <Footer />
         {/* Footer (optional) */}
         {/* <Footer /> */}

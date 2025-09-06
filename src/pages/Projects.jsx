@@ -1,27 +1,31 @@
+import Card from '../components/ui/Card';
+import SectionTitle from '../components/ui/SectionTitle';
 import { useSelector } from 'react-redux';
 
-export default function Projects() {
-  const projects = useSelector((state) => state.portfolio.projects);
-
+const Projects = () => {
+  const projects = useSelector((state) => state.projects.projects);
   return (
-    <section className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Projects</h2>
-      <div className="grid gap-4 md:grid-cols-2">
-        {projects.map((project) => (
-          <div key={project.id} className="p-4 border rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold">{project.title}</h3>
-            <p className="text-gray-600">{project.description}</p>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline"
-            >
-              View Project
-            </a>
-          </div>
-        ))}
+    <section className="w-full px-4 py-12" id="projects">
+      <div className="app-container mx-auto pt-[80px] md:py-[60px] lg:py-[123px]">
+        {/* component title */}
+        <SectionTitle hash={'/'} title="projects" buttonText="View all" link="/projects" />
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Example Card component usage */}
+          {projects.map((project, index) => (
+            <Card
+              key={index}
+              title={project.title}
+              description={project.subtitle}
+              techStack={project.technologies}
+              liveLink={project.projectUrl}
+              image={project.imageUrl}
+              altText={`${project.title} image`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Projects;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 const Navbar = () => {
   const [navbtns] = useState([
     { id: 1, name: 'home', link: '/' },
-    { id: 2, name: 'works', link: '/projects' },
+    { id: 2, name: 'works', link: '/works' },
     { id: 3, name: 'about-me', link: '/about' },
     { id: 4, name: 'contact', link: '/contact' },
   ]);

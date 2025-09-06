@@ -2,8 +2,30 @@ import Button from '../ui/Button';
 import SectionTitle from '../ui/SectionTitle';
 import { ThemeProvider, FloatingLabel, createTheme } from 'flowbite-react';
 import { useSelector } from 'react-redux';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const contactForm = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(contactForm.current.time);
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm.current, PUBLIC_KEY).then(
+      () => {
+        console.log('SUCCESS!');
+      },
+      (error) => {
+        console.log('FAILED...', error.text);
+      }
+    );
+  };
   const input = createTheme({
     input: {
       default: {
@@ -22,6 +44,19 @@ const Contact = () => {
       },
     },
   });
+
+  const formattedDate = (now) => {
+    const hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    const hour12 = hours % 12 === 0 ? 12 : hours % 12;
+
+    const day = now.getDate();
+    const month = now.getMonth() + 1; // months are 0-indexed
+    const year = now.getFullYear();
+
+    return `${hour12.toString().padStart(2, '0')}:${minutes}${ampm} || ${day}-${month}-${year}`;
+  };
   const contacts = useSelector((state) => state.contacts.contacts);
   return (
     <section className="w-full px-4 py-12" id="projects">
@@ -52,14 +87,36 @@ const Contact = () => {
           </div>
           <div>
             <ThemeProvider theme={input}>
-              <form action="">
+              <form action="" ref={contactForm} onSubmit={sendEmail} className="max-w-lg">
                 <div className="flex flex-col gap-4">
-                  <FloatingLabel theme={input} variant="outlined" label="Your Name" />
-                  <FloatingLabel theme={input} variant="outlined" label="Your Email" type="email" />
-                  <FloatingLabel theme={input} variant="outlined" label="Subject" />
+                  <input type="hidden" name="time" defaultValue={formattedDate(new Date())} />
+                  <FloatingLabel
+                    required
+                    name="name"
+                    theme={input}
+                    variant="outlined"
+                    label="Your Name"
+                  />
+                  <FloatingLabel
+                    required
+                    name="email"
+                    theme={input}
+                    variant="outlined"
+                    label="Your Email"
+                    type="email"
+                  />
+                  <FloatingLabel
+                    required
+                    name="subject"
+                    theme={input}
+                    variant="outlined"
+                    label="Subject"
+                  />
                   <div className="relative">
                     <textarea
+                      required
                       id="contactMessage"
+                      name="message"
                       className="peer block w-full h-50 p-3 appearance-none border bg-transparent px-2.5 pb-2.5 pt-4 text-sm focus:outline-none focus:ring-0 dark:text-white border-gray-a focus:border-primary dark:border-gray-a text-white dark:focus:border-primary rounded-none"
                       placeholder=" "
                     ></textarea>

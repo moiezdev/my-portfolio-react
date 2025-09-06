@@ -11,7 +11,10 @@ const SectionTitle = ({ title, buttonText, link, hash, line }) => {
             <span className="text-primary">{hash || '#'}</span>
             {title}
           </h2>
-          <span className={`inline-block border-b border-primary w-[${line || '250px'}]`}></span>
+          <span
+            className={`hidden md:inline-block border-b border-primary w-[${line || '250px'}]`}
+            style={{ width: line || '250px' }}
+          ></span>
         </div>
         {link && buttonText && (
           <a className="cursor-pointer" onClick={() => navigate(link)}>
