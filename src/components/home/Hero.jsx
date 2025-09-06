@@ -40,7 +40,7 @@ const Hero = () => {
             src="commas.svg"
             alt=""
           />
-          <p>With great power comes great electricity bills</p>
+          <p>When life gives you lemons, order pizza instead.</p>
           <img
             className="bg-gray-b w-[41px] absolute bottom-[-15px] right-[10px]"
             src="commas.svg"
@@ -48,7 +48,7 @@ const Hero = () => {
           />
         </div>
         <div className="border border-gray-a p-[16px] inline-block mt-[-1px]">
-          <p>- Dr. Who</p>
+          <p>- Uncle Bob</p>
         </div>
       </div>
     </section>

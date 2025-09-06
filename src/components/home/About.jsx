@@ -6,8 +6,8 @@ const About = () => {
     <section className="w-full px-4 py-12" id="projects">
       <div className="app-container mx-auto">
         <SectionTitle title="about me" />
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="">
+        <div className="grid md:gap-[60px] lg:gap-[97px] md:grid-cols-9">
+          <div className="md:col-span-5">
             <h3 className="my-6">Moiz Dev</h3>
             <p className="mb-6">
               Hello, i’m Elias! I’m a self-taught front-end developer based in Kyiv, Ukraine. I can
@@ -21,7 +21,7 @@ const About = () => {
             </p>
             <Button primary={true}>Read More ~~{'>'}</Button>
           </div>
-          <div className="">
+          <div className="md:col-span-4">
             <img className="w-full" src="/aboutSection/about-img.png" alt="" />
           </div>
         </div>

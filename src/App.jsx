@@ -4,8 +4,12 @@ import Projects from './pages/Projects';
 import Index from './pages/Index';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    document.title = 'MoizDev | Portfolio';
+  });
   return (
     <Router>
       <div>

@@ -11,9 +11,14 @@ node_modules
 dist
 dist-ssr
 *.local
+.flowbite-react
+.flowbite-react/*
+
+package-lock.json
 
 # Editor directories and files
 .vscode/*
+.vscode
 !.vscode/extensions.json
 .idea
 .DS_Store

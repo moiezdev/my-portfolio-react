@@ -1,4 +1,7 @@
+import { useSelector } from 'react-redux';
+
 const Footer = () => {
+  const contacts = useSelector((state) => state.contacts.contacts);
   return (
     <footer className="w-full border-t border-t-gray-300/20  px-4 py-6 mt-12">
       <div className="app-container mx-auto text-sm text-gray-500">
@@ -10,11 +13,29 @@ const Footer = () => {
                 moiezdev@gmail.com
               </a>
             </p>
-            <p>FullStack Developer | Frontend Specialist</p>
+            <p className="text-white">FullStack Developer | Frontend Specialist</p>
           </div>
           <div>
-            <h1 className="text-xlarge">Media</h1>
-            <div></div>
+            <h1 className="text-large text-white">Media</h1>
+            <div className="flex flex-wrap justify-center md:justify-end gap-4 mt-2">
+              {contacts.map((contact, index) => {
+                if (contact.icon && contact.categories.includes('media')) {
+                  return (
+                    <a
+                      className="cursor-pointer"
+                      href={contact.url}
+                      target="_blank"
+                      key={index}
+                      rel="noopener noreferrer"
+                    >
+                      <img src={contact.icon} alt={contact.platform} />
+                    </a>
+                  );
+                } else {
+                  return;
+                }
+              })}
+            </div>
           </div>
         </div>
         <div className=" text-center ">
