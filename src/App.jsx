@@ -19,7 +19,10 @@ function App() {
         <div className="relative z-0">
           <Routes>
             <Route path="/" element={<Index />} />
-            {/* <Route path="/about" element={<About />} /> */}
+            <Route
+              path="/about"
+              element={<div className="text-2xl text-amber-50 mt-52">about</div>}
+            />
             <Route path="/works" element={<Projects />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
             {/* <Route path="*" element={<NotFound />} /> */}

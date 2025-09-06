@@ -6,9 +6,10 @@ const Projects = () => {
   const projects = useSelector((state) => state.projects.projects);
   return (
     <section className="w-full px-4 py-12" id="projects">
-      <div className="app-container mx-auto pt-[80px] md:py-[60px] lg:py-[123px]">
+      <div className="app-container mx-auto pt-[80px] md:py-[60px]">
         {/* component title */}
         <SectionTitle hash={'/'} title="projects" buttonText="View all" link="/projects" />
+        <p className="mt-[-20px] mb-[50px]">List of my projects</p>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Example Card component usage */}
           {projects.map((project, index) => (
