@@ -1,33 +1,9 @@
 import Card from '../ui/Card';
 import SectionTitle from '../ui/SectionTitle';
+import { useSelector } from 'react-redux';
 
 const Skills = () => {
-  const skills = [
-    {
-      category: 'Programming Languages',
-      items: ['JavaScript', 'TypeScript', 'Python'],
-    },
-    {
-      category: 'Frameworks & Libraries',
-      items: ['React', 'Vue', 'NextJs', 'NuxtJs', 'TailwindCSS', 'MaterialUI', 'Node', 'Express'],
-    },
-    {
-      category: 'Databases',
-      items: ['MongoDB', 'MySQL'],
-    },
-    {
-      category: 'Tools & Platforms',
-      items: ['Git', 'GitHub', 'GitLab', 'Vite', 'Vercel', 'Netlify'],
-    },
-    {
-      category: 'Design & Prototyping',
-      items: ['Figma', 'Adobe XD', 'Sketch'],
-    },
-    {
-      category: 'Other Skills',
-      items: ['HTML5', 'CSS3', 'Agile Methodologies', 'Test-Driven Development'],
-    },
-  ];
+  const skills = useSelector((state) => state.skills.skills);
   return (
     <section className="w-full px-4 py-12" id="projects">
       <div className="app-container mx-auto">
