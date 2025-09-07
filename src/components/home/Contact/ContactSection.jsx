@@ -8,27 +8,16 @@ import Loading from '../../Loading';
 
 const Error = ({ message, setError }) => (
   <div
-    className="absolute top-0 left-0 right-0 z-50 w-full h-full flex flex-col items-center justify-center p-4 mb-4 text-sm text-red-700 dark:bg-red-200/80 dark:text-red-800"
+    className="z-50 relative w-full flex flex-col justify-center p-4 mb-4 text-sm text-red-700 dark:bg-red-800/20 dark:text-red-800"
     role="alert"
   >
-    <span className="font-medium">
-      {' '}
-      <svg
-        width="76"
-        height="76"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="2" />
-        <line x1="8" y1="8" x2="16" y2="16" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-        <line x1="16" y1="8" x2="8" y2="16" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    </span>{' '}
-    <p className="mt-2">{message}</p>
+    <p className="text-white flex items-end gap-2">
+      <img className="w-[20px] mb-[1px]" src="/error.svg" alt="/error" />
+      {message}
+    </p>
     <button
       type="button"
-      className="absolute top-1 right-1 ml-2 text-sm bg-transparent text-white focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-100 inline-flex items-center dark:hover:bg-grey-b dark:text-white dark:hover:text-red-800"
+      className="absolute top-0 right-0 text-white h-full flex items-center justify-center aspect-square hover:bg-red-700/20"
       data-dismiss-target="#alert-2"
       aria-label="Close"
       onClick={() => setError(false)}
@@ -56,7 +45,7 @@ const ContactSection = () => {
 
   // states
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
   const sendEmail = (e) => {
