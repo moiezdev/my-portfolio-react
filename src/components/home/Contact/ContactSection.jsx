@@ -130,7 +130,7 @@ const ContactSection = () => {
                 .filter((contact) => contact.categories.includes('contact'))
                 .map((contact, index) => (
                   <a
-                    className="flex items-center gap-2 cursor-pointer"
+                    className="flex items-center gap-2 cursor-pointer hover:text-primary"
                     href={contact.url}
                     target="_blank"
                     key={index}
