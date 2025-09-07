@@ -1,10 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Projects from './pages/Projects';
 import Index from './pages/Index';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { useEffect } from 'react';
+import { Component, useEffect } from 'react';
+import { Suspense, lazy } from 'react';
+import Loading from './components/Loading';
+
+// --- import pages with lazy loading ---
+
+const Home = lazy(() => import('./pages/Index'));
+const ProjectsPage = lazy(() => import('./pages/Projects'));
+const AboutPage = lazy(() => import('./pages/About'));
+const ContactPage = lazy(() => import('./pages/Contact'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+import ScrollToTop from './components/functions/ScrollToTop';
+
+// Component of the pages
 
 function App() {
   useEffect(() => {
@@ -13,24 +25,20 @@ function App() {
   return (
     <Router>
       <div>
-        {/* Navbar (optional) */}
-        {/* <Navbar /> */}
         <Navbar />
         <div className="relative z-0">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route
-              path="/about"
-              element={<div className="text-2xl text-amber-50 mt-52">about</div>}
-            />
-            <Route path="/works" element={<Projects />} />
-            {/* <Route path="/contact" element={<Contact />} /> */}
-            {/* <Route path="*" element={<NotFound />} /> */}
-          </Routes>
+          <Suspense fallback={<Loading />}>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/works" element={<ProjectsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </div>
         <Footer />
-        {/* Footer (optional) */}
-        {/* <Footer /> */}
       </div>
     </Router>
   );

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import SideLinks from './ui/SideLinks';
 
 const Navbar = () => {
   const [navbtns] = useState([
@@ -9,6 +11,7 @@ const Navbar = () => {
   ]);
   return (
     <nav className="p-4 pb-3 fixed w-full top-0 left-0 z-10 bg-gray-b shadow-xl shadow-gray-b">
+      <SideLinks />
       <div className="app-container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <span className="text-white font-bold">MoizDev</span>
@@ -16,10 +19,10 @@ const Navbar = () => {
         <ul className="flex space-x-4">
           {navbtns.map((btn) => (
             <li key={btn.id}>
-              <a href={btn.link} className="hover:text-white">
+              <Link to={btn.link} className="hover:text-white">
                 <span className="text-primary">#</span>
                 {btn.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

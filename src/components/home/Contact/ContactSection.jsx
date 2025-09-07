@@ -1,0 +1,213 @@
+import Button from '../../ui/Button';
+import SectionTitle from '../../ui/SectionTitle';
+import { ThemeProvider, FloatingLabel, createTheme } from 'flowbite-react';
+import { useSelector } from 'react-redux';
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import Loading from '../../Loading';
+
+const Error = ({ message, setError }) => (
+  <div
+    className="absolute top-0 left-0 right-0 z-50 w-full h-full flex flex-col items-center justify-center p-4 mb-4 text-sm text-red-700 dark:bg-red-200/80 dark:text-red-800"
+    role="alert"
+  >
+    <span className="font-medium">
+      {' '}
+      <svg
+        width="76"
+        height="76"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="2" />
+        <line x1="8" y1="8" x2="16" y2="16" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+        <line x1="16" y1="8" x2="8" y2="16" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    </span>{' '}
+    <p className="mt-2">{message}</p>
+    <button
+      type="button"
+      className="absolute top-1 right-1 ml-2 text-sm bg-transparent text-white focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-100 inline-flex items-center dark:hover:bg-grey-b dark:text-white dark:hover:text-red-800"
+      data-dismiss-target="#alert-2"
+      aria-label="Close"
+      onClick={() => setError(false)}
+    >
+      <svg
+        aria-hidden="true"
+        className="w-5 h-5"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          clipRule="evenodd"
+        ></path>
+      </svg>
+      <span className="sr-only">Close</span>
+    </button>
+  </div>
+);
+
+const ContactSection = () => {
+  const contactForm = useRef();
+
+  // states
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const sendEmail = (e) => {
+    setLoading(true);
+    e.preventDefault();
+    console.log(contactForm.current.time);
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, contactForm.current, PUBLIC_KEY).then(
+      () => {
+        setLoading(false);
+        contactForm.current.reset();
+        console.log('SUCCESS!');
+      },
+      (error) => {
+        setLoading(false);
+        setErrorMessage(error.text);
+        setError(true);
+        console.log('FAILED...', error.text);
+      }
+    );
+  };
+  const input = createTheme({
+    input: {
+      default: {
+        outlined: {
+          sm: 'border border-gray-a text-normal focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-a text-white dark:text-white dark:focus:border-primary rounded-none',
+          md: 'border border-gray-a text-normal focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-a text-white dark:text-white dark:focus:border-primary rounded-none',
+        },
+      },
+    },
+    label: {
+      default: {
+        outlined: {
+          sm: 'peer-focus:text-primary dark:peer-focus:text-primary dark:bg-gray-b dark:text-gray-a text-normal',
+          md: 'peer-focus:text-primary dark:peer-focus:text-primary dark:bg-gray-b dark:text-gray-a text-normal',
+        },
+      },
+    },
+  });
+
+  const formattedDate = (now) => {
+    const hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    const hour12 = hours % 12 === 0 ? 12 : hours % 12;
+
+    const day = now.getDate();
+    const month = now.getMonth() + 1; // months are 0-indexed
+    const year = now.getFullYear();
+
+    return `${hour12.toString().padStart(2, '0')}:${minutes}${ampm} || ${day}-${month}-${year}`;
+  };
+  const contacts = useSelector((state) => state.contacts.contacts);
+  return (
+    <>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="flex flex-col justify-between order-2 md:order-1">
+          <p className="my-6">
+            I’m interested in freelance opportunities. However, if you have other request or
+            question, don’t hesitate to contact me.
+          </p>
+          <div>
+            <div className="border border-gray-a inline-flex flex-col gap-4 p-[16px]">
+              <h3>Message Me Directly</h3>
+              {contacts.map((contact, index) => (
+                <a
+                  className="flex items-center gap-2 cursor-pointer"
+                  href={contact.url}
+                  target="_blank"
+                  key={index}
+                >
+                  <img src={contact.icon} alt="" />
+                  {contact.handle}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="relative order-1 md:order-2 flex justify-center md:justify-end">
+          <ThemeProvider theme={input}>
+            <form
+              action=""
+              ref={contactForm}
+              onSubmit={sendEmail}
+              className="max-w-md w-full relative"
+            >
+              {loading && (
+                <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 z-20">
+                  <Loading message="Sending..." height="h-full" />
+                </div>
+              )}
+              {error && (
+                <Error
+                  setError={setError}
+                  message={errorMessage || 'Something went wrong! Please try again.'}
+                />
+              )}
+              <div className="flex flex-col gap-4">
+                <input type="hidden" name="time" defaultValue={formattedDate(new Date())} />
+                <FloatingLabel
+                  required
+                  name="name"
+                  theme={input}
+                  variant="outlined"
+                  label="Your Name"
+                />
+                <FloatingLabel
+                  required
+                  name="email"
+                  theme={input}
+                  variant="outlined"
+                  label="Your Email"
+                  type="email"
+                />
+                <FloatingLabel
+                  required
+                  name="subject"
+                  theme={input}
+                  variant="outlined"
+                  label="Subject"
+                />
+                <div className="relative">
+                  <textarea
+                    required
+                    id="contactMessage"
+                    name="message"
+                    className="peer block w-full h-50 p-3 appearance-none border bg-transparent px-2.5 pb-2.5 pt-4 text-sm focus:outline-none focus:ring-0 dark:text-white border-gray-a focus:border-primary dark:border-gray-a text-white dark:focus:border-primary rounded-none"
+                    placeholder=" "
+                  ></textarea>
+                  <label
+                    htmlFor="contactMessage"
+                    className="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 bg-white px-2 text-sm transition-transform duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-primary dark:peer-focus:text-primary dark:bg-gray-b dark:text-gray-a text-normal"
+                  >
+                    Your Message Here
+                  </label>
+                </div>
+                <div>
+                  <Button primary={true}>Send Message</Button>
+                </div>
+              </div>
+            </form>
+          </ThemeProvider>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default ContactSection;

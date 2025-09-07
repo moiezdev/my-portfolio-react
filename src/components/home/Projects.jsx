@@ -8,7 +8,7 @@ const Projects = () => {
     <section className="w-full px-4 py-12" id="projects">
       <div className="app-container mx-auto">
         {/* component title */}
-        <SectionTitle title="projects" buttonText="View all" link="/projects" />
+        <SectionTitle title="projects" buttonText="View all" link="/works" />
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Example Card component usage */}
           {projects.slice(0, 3).map((project, index) => (
