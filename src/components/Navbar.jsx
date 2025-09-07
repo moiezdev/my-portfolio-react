@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SideLinks from './ui/SideLinks';
+import Logo from './ui/Logo';
 
 const Navbar = () => {
   const [navbtns] = useState([
@@ -14,7 +15,10 @@ const Navbar = () => {
       <SideLinks />
       <div className="app-container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-white font-bold">MoizDev</span>
+          <span className="text-white font-bold flex items-center gap-1">
+            <Logo size={35} />
+            MoizDev
+          </span>
         </div>
         <ul className="flex space-x-4">
           {navbtns.map((btn) => (

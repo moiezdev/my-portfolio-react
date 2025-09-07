@@ -1,12 +1,14 @@
 import React from 'react';
 import Button from './Button';
 
-const Card = ({ title, description, techStack, liveLink, image, altText }) => {
+const Card = ({ className, title, description, techStack, liveLink, image, altText }) => {
   return (
-    <div className="border border-gray-a hover:shadow-lg transition-shadow duration-300">
+    <div
+      className={`border border-gray-a hover:shadow-lg transition-shadow duration-300 ${className}`}
+    >
       {image ? (
         <div className="relative border-b border-gray-a">
-          <img src={image} alt={altText || title} className="w-full h-40 object-cover" />
+          <img src={image} alt={altText || title} className="w-full aspect-[16/10] object-cover" />
         </div>
       ) : null}
       <div>

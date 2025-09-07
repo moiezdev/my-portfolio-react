@@ -18,14 +18,14 @@ const Projects = () => {
     // Kill old triggers
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
-    // Entrance animation (from bottom-center with stagger)
+    // Minimal and smooth entrance animation
     gsap.fromTo(
       cardsRef.current,
       {
-        yPercent: 100, // slide up from below
-        xPercent: -50, // start horizontally centered
+        yPercent: 30, // start closer to final position
+        xPercent: 0, // no horizontal shift
         opacity: 0,
-        scale: 0.8,
+        scale: 0.95, // slight scale down
         transformOrigin: 'center bottom',
       },
       {
@@ -33,18 +33,18 @@ const Projects = () => {
         xPercent: 0,
         opacity: 1,
         scale: 1,
-        duration: 1.2,
-        ease: 'back.out(1.7)',
-        stagger: 0.2,
+        duration: 1.2, // shorter, smoother
+        ease: 'back.out(0.5)', // minimal bounce
+        stagger: 0.15,
         scrollTrigger: {
           trigger: cardsRef.current[0]?.parentNode,
-          start: 'top 80%',
+          start: 'top 80%', // slightly later
           toggleActions: 'play none none none',
         },
       }
     );
 
-    // Floating loop effect after entrance
+    // Floating effect
     cardsRef.current.forEach((card, i) => {
       gsap.to(card, {
         y: '+=8',
@@ -60,13 +60,13 @@ const Projects = () => {
     cardsRef.current.forEach((card) => {
       const handleMouseMove = (e) => {
         const rect = card.getBoundingClientRect();
-        const offsetX = (e.clientX - (rect.left + rect.width / 2)) * 0.15;
-        const offsetY = (e.clientY - (rect.top + rect.height / 2)) * 0.15;
+        const offsetX = (e.clientX - (rect.left + rect.width / 2)) * 0.03; // smaller movement
+        const offsetY = (e.clientY - (rect.top + rect.height / 2)) * 0.03;
         gsap.to(card, {
           x: offsetX,
           y: offsetY,
-          duration: 0.3,
-          ease: 'power3.out',
+          duration: 0.5, // slightly slower
+          ease: 'power2.out',
         });
       };
 
@@ -75,7 +75,7 @@ const Projects = () => {
           x: 0,
           y: 0,
           duration: 0.5,
-          ease: 'power3.out',
+          ease: 'power2.out',
         });
       };
 
