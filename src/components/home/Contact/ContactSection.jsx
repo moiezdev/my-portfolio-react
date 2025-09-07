@@ -45,7 +45,7 @@ const ContactSection = () => {
 
   // states
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const sendEmail = (e) => {
