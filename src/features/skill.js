@@ -35,5 +35,4 @@ const skillSlice = createSlice({
     reducers: {}
 });
 
-export const { } = skillSlice.actions;
 export default skillSlice.reducer;
