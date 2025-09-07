@@ -126,17 +126,19 @@ const ContactSection = () => {
           <div>
             <div className="border border-gray-a inline-flex flex-col gap-4 p-[16px]">
               <h3>Message Me Directly</h3>
-              {contacts.map((contact, index) => (
-                <a
-                  className="flex items-center gap-2 cursor-pointer"
-                  href={contact.url}
-                  target="_blank"
-                  key={index}
-                >
-                  <img src={contact.icon} alt="" />
-                  {contact.handle}
-                </a>
-              ))}
+              {contacts
+                .filter((contact) => contact.categories.includes('contact'))
+                .map((contact, index) => (
+                  <a
+                    className="flex items-center gap-2 cursor-pointer"
+                    href={contact.url}
+                    target="_blank"
+                    key={index}
+                  >
+                    <img width={25} src={contact.icon} alt="" />
+                    {contact.handle}
+                  </a>
+                ))}
             </div>
           </div>
         </div>

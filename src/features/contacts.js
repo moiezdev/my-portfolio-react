@@ -3,10 +3,17 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     contacts: [
         {
+            platform: 'GitHub',
+            handle: '@moizdev',
+            categories: ['media', 'portfolio'],
+            url: 'https://github.com/moiezdev',
+            icon: '/socialMediaIcons/Github.svg',
+        },
+        {
             platform: 'LinkedIn',
             handle: '@moizdev',
             categories: ['media', 'contact', 'freelance', 'portfolio'],
-            url: 'https://www.linkedin.com/in/moizdev/',
+            url: 'https://www.linkedin.com/in/moiezdev/',
             icon: '/socialMediaIcons/Linkedin.svg',
         },
         {
@@ -25,10 +32,10 @@ const initialState = {
         },
         {
             platform: 'Gmail',
-            handle: 'Whatsapp: +966 573240913',
+            handle: '+966 573240913 (WhatsApp)',
             categories: ['contact',],
             url: 'https://wa.me/qr/CCKSULC4NRAZI1',
-            icon: '/socialMediaIcons/Email.svg',
+            icon: '/socialMediaIcons/Whatsapp.svg',
         },
         // Add more contacts as needed
     ],

@@ -1,11 +1,23 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 const SideLinks = () => {
+  const contacts = useSelector((state) => state.contacts.contacts);
+  const github = contacts.find((contact) => contact.platform === 'GitHub');
+  const linkedin = contacts.find((contact) => contact.platform === 'LinkedIn');
+
+  useEffect(() => {
+    console.log('SideLinks mounted', { contacts, github, linkedin });
+    // Any side effects or animations can be added here
+  }, []);
+
   return (
     <div className="hidden xl:flex fixed left-[25px] top-0 flex-col justify-end items-center z-10 p-1 bg-gray-b">
       <div className="h-[200px] border border-gray-a animate-growHeight"></div>
       <div className="flex flex-col items-center mt-4 space-y-4">
         {/* GitHub */}
         <a
-          href="https://github.com/moizdev"
+          href={github ? github.url : '#'}
           target="_blank"
           rel="noopener noreferrer"
           className="cursor-pointer"
@@ -14,7 +26,7 @@ const SideLinks = () => {
         </a>
         {/* LinkedIn */}
         <a
-          href="https://www.linkedin.com/in/moizdev/"
+          href={linkedin ? linkedin.url : '#'}
           target="_blank"
           rel="noopener noreferrer"
           className="cursor-pointer"
