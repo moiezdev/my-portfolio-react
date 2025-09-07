@@ -18,7 +18,7 @@ const initialState = {
             description:
                 "A full-featured e-commerce website with product listings, shopping cart, and payment integration.",
             technologies: ["Nuxt", "Vuex", "Buefy", "JavaScript", "Bootstrap5", "SCSS", "Sabre", "Amadeus"],
-            imageUrl: "/projects-media/aatourism/main.png",
+            imageUrl: "/projects-media/aa-tourism/main.png",
             projectUrl: "http://aatourism.ca/",
             githubUrl: "http://aatourism.ca/",
             media: ['img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png'],
