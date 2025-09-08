@@ -33,6 +33,15 @@ body {
   font-size: var(--text-normal);
   line-height: normal;
   font-size: 16px;
+  cursor: none;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
 }
 
 .app-container {
