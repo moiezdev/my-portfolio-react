@@ -9,6 +9,7 @@ const Logo = ({
   duration = 2, // draw duration
   floatDuration = 2, // floating speed
   simple = false, // if true, just show filled logo
+  className,
 }) => {
   const pathRefs = useRef([]);
   const groupRef = useRef(null);
@@ -53,7 +54,7 @@ const Logo = ({
   return (
     <svg
       ref={groupRef}
-      className="overflow-visible"
+      className={`overflow-visible ${className}`}
       width={1 * size}
       height={0.51 * size}
       viewBox="0 0 115 59"

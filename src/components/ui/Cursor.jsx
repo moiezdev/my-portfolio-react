@@ -14,16 +14,14 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
     const cursorPointer = cursorPointerRef.current;
     const cursorFollower = cursorFollowerRef.current;
 
-    // Initial state
     gsap.set(cursorPointer, { scale: 0.6, opacity: 1 });
     gsap.set(cursorFollower, { scale: 1, opacity: 1 });
 
     const moveCursor = (e) => {
       if (!isVisibleRef.current) {
         isVisibleRef.current = true;
-        updateCursorStyle(isPointerRef.current); // ← Reapply visible styles if it was hidden
+        updateCursorStyle(isPointerRef.current);
       }
-
       resetInactivityTimer();
 
       gsap.to(cursorPointer, {
@@ -44,34 +42,34 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
         scale: newScale,
         backgroundColor: newColor,
         opacity: newOpacity,
-        duration: 0.25,
+        duration: 0.5,
         ease: 'power3.out',
       });
 
       gsap.to(cursorFollower, {
         scale: followerScale,
         opacity: hovering ? 0 : newOpacity,
-        duration: 0.25,
+        duration: 0.1,
         ease: 'power3.out',
       });
     };
 
-    const updateCursorType = (e) => {
-      let el = e.target;
+    const checkElement = (el) => {
       let hovering = false;
-      scaleRef.current = 1; // reset to default scale
+      scaleRef.current = 1; // reset
 
       while (el && el !== document.body) {
         if (el.tagName === 'A' || el.classList.contains('cursor-pointer')) {
-          // hover size
-
-          let scaleClass = Array.from(el.classList).find((c) => c.startsWith('cursor-scale-'));
+          // scale handling
+          const scaleClass = Array.from(el.classList).find((c) => c.startsWith('cursor-scale-'));
           if (scaleClass) {
-            const newScale = parseFloat(scaleClass.replace('cursor-scale-', ''), 10);
-            if (!isNaN(newScale) && newScale >= 0) {
+            const newScale = parseFloat(scaleClass.replace('cursor-scale-', ''));
+            if (!isNaN(newScale)) {
               scaleRef.current = newScale;
             }
           }
+
+          // color handling
           if (el.classList.contains('cursor-white')) {
             colorRef.current = getComputedStyle(document.documentElement).getPropertyValue(
               '--color-white'
@@ -83,50 +81,37 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
           } else {
             colorRef.current = '#FFFF00';
           }
+
           hovering = true;
           break;
         }
         el = el.parentElement;
       }
 
-      if (hovering !== isPointerRef.current) {
-        isPointerRef.current = hovering;
-
-        updateCursorStyle(hovering, colorRef.current);
-        isVisibleRef.current = true;
-      }
+      isPointerRef.current = hovering;
+      updateCursorStyle(hovering);
     };
 
     const resetInactivityTimer = () => {
-      if (inactivityTimeout.current) {
-        isVisibleRef.current = true;
-        clearTimeout(inactivityTimeout.current);
-      }
-
+      if (inactivityTimeout.current) clearTimeout(inactivityTimeout.current);
       inactivityTimeout.current = setTimeout(() => {
         isVisibleRef.current = false;
-        gsap.to(cursorPointer, { opacity: 0, duration: 0.3 });
-        gsap.to(cursorFollower, { opacity: 0, duration: 0.3 });
+        gsap.to([cursorPointer, cursorFollower], { opacity: 0, duration: 0.3 });
       }, 5000);
     };
 
+    // Events
     window.addEventListener('mousemove', moveCursor);
-    window.addEventListener('mousemove', updateCursorType);
-    window.addEventListener('scroll', () => {
-      moveCursor;
-      updateCursorStyle;
+    document.addEventListener('mouseover', (e) => checkElement(e.target));
+    document.addEventListener('mouseout', (e) => checkElement(e.relatedTarget));
 
-      // isVisibleRef.current = false;
-      // gsap.to(cursorPointer, { opacity: 0, duration: 0.3 });
-      // gsap.to(cursorFollower, { opacity: 0, duration: 0.3 });
-    });
     document.body.style.cursor = 'none';
     resetInactivityTimer();
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
-      window.removeEventListener('mousemove', updateCursorType);
-      window.removeEventListener('scroll', () => {});
+      document.removeEventListener('mouseover', (e) => checkElement(e.target));
+      document.removeEventListener('mouseout', (e) => checkElement(e.relatedTarget));
       document.body.style.cursor = 'default';
       clearTimeout(inactivityTimeout.current);
     };

@@ -36,7 +36,7 @@ const Skills = () => {
 
             {/* Floating SVGs and Image */}
 
-            <div className="absolute bottom-1 left-0 translate-x -translate-y-1/2 z-0 cursor-pointer cursor-white cursor-scale-2.5">
+            <div className="absolute bottom-1 left-0 translate-x -translate-y-1/2 z-0 cursor-pointer cursor-white cursor-scale-7">
               <Logo
                 size={170}
                 animate={true}
@@ -94,7 +94,7 @@ const Skills = () => {
                     <Magnetic key={index} strength={0.1} duration={0.5}>
                       <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300">
                         <div className="flex flex-col">
-                          <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer">
+                          <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer cursor-white cursor-scale-2">
                             {skill.category}
                           </h2>
                           <div className="flex flex-wrap gap-[8px] p-[8px] mt-0">
