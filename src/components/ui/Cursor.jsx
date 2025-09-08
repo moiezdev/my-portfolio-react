@@ -113,9 +113,12 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mousemove', updateCursorType);
     window.addEventListener('scroll', () => {
-      isVisibleRef.current = false;
-      gsap.to(cursorPointer, { opacity: 0, duration: 0.3 });
-      gsap.to(cursorFollower, { opacity: 0, duration: 0.3 });
+      moveCursor;
+      updateCursorStyle;
+
+      // isVisibleRef.current = false;
+      // gsap.to(cursorPointer, { opacity: 0, duration: 0.3 });
+      // gsap.to(cursorFollower, { opacity: 0, duration: 0.3 });
     });
     document.body.style.cursor = 'none';
     resetInactivityTimer();
