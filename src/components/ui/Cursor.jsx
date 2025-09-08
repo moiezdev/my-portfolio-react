@@ -71,7 +71,6 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
             if (!isNaN(newScale) && newScale >= 0) {
               scaleRef.current = newScale;
             }
-            console.log('Found scale class:', scaleClass, '=>', scaleRef.current);
           }
           if (el.classList.contains('cursor-white')) {
             colorRef.current = getComputedStyle(document.documentElement).getPropertyValue(

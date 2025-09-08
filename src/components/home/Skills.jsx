@@ -97,10 +97,10 @@ const Skills = () => {
                           <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer">
                             {skill.category}
                           </h2>
-                          <div className="flex flex-wrap gap-[8px] p-[8px] mt-0 cursor-pointer">
+                          <div className="flex flex-wrap gap-[8px] p-[8px] mt-0">
                             {skill.items.map((item, idx) => (
                               <span
-                                className="px-2.5 py-0.5 bg-gray-a/20 hover:scale-110 transition-all"
+                                className="px-2.5 py-0.5 bg-gray-a/20 hover:scale-110 transition-all cursor-pointer cursor-scale-0 hover:bg-primary/20"
                                 key={idx}
                               >
                                 {item}
