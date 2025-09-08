@@ -103,7 +103,6 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
         pointerEvents: 'none',
         transform: 'translate(-50%, -50%)',
         zIndex: 9999,
-        borderRadius: '50%',
         backgroundColor: color,
         mixBlendMode: isPointer ? 'difference' : 'normal', // subtle color blending
         isolation: 'isolate', // Ensure blend mode works
