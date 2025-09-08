@@ -8,7 +8,7 @@ import Loading from '../../Loading';
 
 const Error = ({ message, setError }) => (
   <div
-    className="z-50 relative w-full flex flex-col justify-center p-4 mb-4 text-sm text-red-700 dark:bg-red-800/20 dark:text-red-800"
+    className="z-50 relative w-full flex flex-col justify-center p-4 mb-4 text-sm text-red-700 bg-red-800/20 text-red-800"
     role="alert"
   >
     <p className="text-white flex items-end gap-2">
@@ -76,16 +76,16 @@ const ContactSection = () => {
     input: {
       default: {
         outlined: {
-          sm: 'border border-gray-a text-normal focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-a text-white dark:text-white dark:focus:border-primary rounded-none',
-          md: 'border border-gray-a text-normal focus:border-primary focus:outline-none focus:ring-0 dark:border-gray-a text-white dark:text-white dark:focus:border-primary rounded-none',
+          sm: 'border border-gray-a text-normal focus:outline-none focus:ring-0 text-white focus:border-primary rounded-none',
+          md: 'border border-gray-a text-normal focus:outline-none focus:ring-0 text-white focus:border-primary rounded-none',
         },
       },
     },
     label: {
       default: {
         outlined: {
-          sm: 'peer-focus:text-primary dark:peer-focus:text-primary dark:bg-gray-b dark:text-gray-a text-normal',
-          md: 'peer-focus:text-primary dark:peer-focus:text-primary dark:bg-gray-b dark:text-gray-a text-normal',
+          sm: 'peer-focus:text-primary bg-gray-b text-gray-a text-normal',
+          md: 'peer-focus:text-primary bg-gray-b text-gray-a text-normal',
         },
       },
     },
@@ -179,12 +179,12 @@ const ContactSection = () => {
                     required
                     id="contactMessage"
                     name="message"
-                    className="peer block w-full h-50 p-3 appearance-none border bg-transparent px-2.5 pb-2.5 pt-4 text-sm focus:outline-none focus:ring-0 dark:text-white border-gray-a focus:border-primary dark:border-gray-a text-white dark:focus:border-primary rounded-none"
+                    className="peer block w-full h-50 p-3 appearance-none border bg-transparent px-2.5 pb-2.5 pt-4 text-sm focus:outline-none focus:ring-0 text-white border-gray-a focus:border-primary border-gray-a text-white focus:border-primary rounded-none"
                     placeholder=" "
                   ></textarea>
                   <label
                     htmlFor="contactMessage"
-                    className="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 bg-white px-2 text-sm transition-transform duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-primary dark:peer-focus:text-primary dark:bg-gray-b dark:text-gray-a text-normal"
+                    className="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 bg-white px-2 text-sm transition-transform duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-primary peer-focus:text-primary bg-gray-b text-gray-a text-normal"
                   >
                     Your Message Here
                   </label>
