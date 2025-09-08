@@ -8,7 +8,7 @@ import Loading from '../../Loading';
 
 const Error = ({ message, setError }) => (
   <div
-    className="z-50 relative w-full flex flex-col justify-center p-4 mb-4 text-sm text-red-700 bg-red-800/20 text-red-800"
+    className="z-50 relative w-full flex flex-col justify-center p-4 mb-4 text-sm bg-red-800/20 text-red-800"
     role="alert"
   >
     <p className="text-white flex items-end gap-2">
@@ -84,8 +84,8 @@ const ContactSection = () => {
     label: {
       default: {
         outlined: {
-          sm: 'peer-focus:text-primary bg-gray-b text-gray-a text-normal',
-          md: 'peer-focus:text-primary bg-gray-b text-gray-a text-normal',
+          sm: 'peer-focus:text-primary bg-transparent dark:bg-transparent text-gray-a text-normal',
+          md: 'peer-focus:text-primary bg-transparent dark:bg-transparent text-gray-a text-normal',
         },
       },
     },
