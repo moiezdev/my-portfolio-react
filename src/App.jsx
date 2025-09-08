@@ -24,6 +24,7 @@ function App() {
   // Get root element
   const root = document.documentElement;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getVar = (name) => getComputedStyle(root).getPropertyValue(name).trim();
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
       primaryColor: getVar('--color-primary'),
     });
     document.title = 'MoiezDev | Portfolio';
-  }, []);
+  }, [getVar]);
   return (
     <Router>
       <div>
