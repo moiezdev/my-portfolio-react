@@ -84,8 +84,8 @@ const ContactSection = () => {
     label: {
       default: {
         outlined: {
-          sm: 'peer-focus:text-primary bg-transparent dark:bg-transparent text-gray-a text-normal',
-          md: 'peer-focus:text-primary bg-transparent dark:bg-transparent text-gray-a text-normal',
+          sm: 'peer-focus:text-primary peer-focus:bg-gray-b bg-transparent dark:bg-transparent text-gray-a text-normal',
+          md: 'peer-focus:text-primary peer-focus:bg-gray-b bg-transparent dark:bg-transparent text-gray-a text-normal',
         },
       },
     },

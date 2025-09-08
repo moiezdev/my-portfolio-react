@@ -2,6 +2,8 @@
 @plugin 'flowbite-react/plugin/tailwindcss';
 @source '../.flowbite-react/class-list.json';
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 /* app colors */
 @theme {
   --color-bg: #ffffff;
