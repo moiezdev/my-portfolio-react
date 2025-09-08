@@ -44,18 +44,6 @@ const Projects = () => {
       }
     );
 
-    // Floating effect
-    cardsRef.current.forEach((card, i) => {
-      gsap.to(card, {
-        y: '+=8',
-        duration: 2 + i * 0.3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        delay: 1.5 + i * 0.2,
-      });
-    });
-
     // Magnetic hover effect
     cardsRef.current.forEach((card) => {
       const handleMouseMove = (e) => {

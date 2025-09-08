@@ -62,17 +62,16 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
       scaleRef.current = 1; // reset to default scale
 
       while (el && el !== document.body) {
-        if (
-          el.tagName === 'BUTTON' ||
-          el.tagName === 'A' ||
-          el.classList.contains('cursor-pointer')
-        ) {
+        if (el.tagName === 'A' || el.classList.contains('cursor-pointer')) {
+          // hover size
+
           let scaleClass = Array.from(el.classList).find((c) => c.startsWith('cursor-scale-'));
           if (scaleClass) {
-            const newScale = parseInt(scaleClass.replace('cursor-scale-', ''), 10);
-            if (!isNaN(newScale) && newScale > 0) {
+            const newScale = parseFloat(scaleClass.replace('cursor-scale-', ''), 10);
+            if (!isNaN(newScale) && newScale >= 0) {
               scaleRef.current = newScale;
             }
+            console.log('Found scale class:', scaleClass, '=>', scaleRef.current);
           }
           if (el.classList.contains('cursor-white')) {
             colorRef.current = getComputedStyle(document.documentElement).getPropertyValue(

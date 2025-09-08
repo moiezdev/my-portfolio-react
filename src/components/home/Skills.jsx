@@ -5,6 +5,7 @@ import FloatingDotBox from '../ui/animatedSvgs/FloatingDotBox';
 import Logo from '../ui/Logo';
 // import { useEffect, useState } from 'react';
 import Floating from '../ui/Floating';
+import Magnetic from '../ui/Magnetic';
 
 const Skills = () => {
   // const [colors, setColors] = useState({});
@@ -28,14 +29,14 @@ const Skills = () => {
         <SectionTitle title="skills" />
         <div className="grid gap-8 lg:grid-cols-7">
           <div className="col-span-3 p-5 hidden lg:block relative">
-            <div className="border inline-block border-gray-a p-1 mx-auto mb-4">
+            <div className="border inline-block border-gray-a p-1 mx-auto mb-4 cursor-pointer cursor-white cursor-scale-1.7">
               <span className="bg-primary h-[16px] aspect-square inline-block mb-[-2px] mr-1"></span>
               These are my technical skills
             </div>
 
             {/* Floating SVGs and Image */}
 
-            <div className="absolute bottom-1 left-0 translate-x -translate-y-1/2 z-0">
+            <div className="absolute bottom-1 left-0 translate-x -translate-y-1/2 z-0 cursor-pointer cursor-white cursor-scale-2.5">
               <Logo
                 size={170}
                 animate={true}
@@ -45,30 +46,41 @@ const Skills = () => {
                 floatDuration={5}
               />
             </div>
+
             <div className="absolute bottom-1/5 right-1/3 translate-x -translate-y-1/2">
-              <FloatingDotBox animate={true} dotSize={2} rows={4} cols={5} duration={9} />
-            </div>
-            <div className="absolute top-1/3 left-2 translate-x -translate-y-1/2">
-              <FloatingDotBox
-                animate={true}
-                dotSize={2}
-                rows={7}
-                cols={7}
-                duration={12}
-                floatDistance={8}
-              />
-            </div>
-            <div className="absolute top-1/4 right-1/7 translate-x -translate-y-1/2">
-              <Floating duration={8}>
-                <div className="w-[100px] h-[100px] border border-gray-a"></div>
-              </Floating>
-            </div>
-            <div className="absolute bottom-1/14 right-4 translate-x -translate-y-1/2">
-              <Floating duration={8}>
-                <div className="w-[65px] h-[65px] border border-gray-a"></div>
-              </Floating>
+              <Magnetic strength={0.1} duration={0.5}>
+                <FloatingDotBox animate={true} dotSize={2} rows={4} cols={5} duration={9} />
+              </Magnetic>
             </div>
 
+            <div className="absolute top-1/3 left-2 translate-x -translate-y-1/2">
+              <Magnetic strength={0.1} duration={0.5}>
+                <FloatingDotBox
+                  animate={true}
+                  dotSize={2}
+                  rows={7}
+                  cols={7}
+                  duration={12}
+                  floatDistance={8}
+                />
+              </Magnetic>
+            </div>
+
+            <div className="absolute top-1/4 right-1/7 translate-x -translate-y-1/2">
+              <Magnetic strength={0.1} duration={0.5}>
+                <Floating duration={8}>
+                  <div className="w-[100px] h-[100px] border border-gray-a"></div>
+                </Floating>
+              </Magnetic>
+            </div>
+
+            <div className="absolute bottom-1/14 right-4 translate-x -translate-y-1/2">
+              <Magnetic strength={0.1} duration={0.5}>
+                <Floating duration={8}>
+                  <div className="w-[65px] h-[65px] border border-gray-a"></div>
+                </Floating>
+              </Magnetic>
+            </div>
             {/* Floating SVGs and Image end */}
             {/* <img className="w-full" src="/skillsSection/skills-bg.png" alt="" /> */}
           </div>
@@ -79,26 +91,25 @@ const Skills = () => {
                 {skills.map((skill, index) => {
                   if (index % 3 !== i) return null;
                   return (
-                    <div
-                      className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300"
-                      key={index}
-                    >
-                      <div className="flex flex-col">
-                        <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer">
-                          {skill.category}
-                        </h2>
-                        <div className="flex flex-wrap gap-[8px] p-[8px] mt-0 cursor-pointer">
-                          {skill.items.map((item, idx) => (
-                            <span
-                              className="px-2.5 py-0.5 bg-gray-a/20 hover:scale-110 transition-all"
-                              key={idx}
-                            >
-                              {item}
-                            </span>
-                          ))}
+                    <Magnetic key={index} strength={0.1} duration={0.5}>
+                      <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300">
+                        <div className="flex flex-col">
+                          <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer">
+                            {skill.category}
+                          </h2>
+                          <div className="flex flex-wrap gap-[8px] p-[8px] mt-0 cursor-pointer">
+                            {skill.items.map((item, idx) => (
+                              <span
+                                className="px-2.5 py-0.5 bg-gray-a/20 hover:scale-110 transition-all"
+                                key={idx}
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Magnetic>
                   );
                 })}
               </div>

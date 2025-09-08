@@ -38,14 +38,16 @@ const Button = ({ children, onClick, className, primary }) => {
     <button
       ref={btnRef}
       onClick={onClick}
-      className={`relative overflow-hidden px-4 py-2 border cursor-pointer ${
+      className={`cursor-pointer cursor-scale-0 relative overflow-hidden px-4 py-2 border ${
         primary ? 'border-primary text-white' : 'border-gray-a text-gray-a'
       } transition ${className}`}
     >
       {/* overlay for mask animation */}
       <span
         ref={overlayRef}
-        className={`absolute top-0 left-0 w-full h-full bg-primary/10 -translate-x-full pointer-events-none`}
+        className={`absolute top-0 left-0 w-full h-full ${
+          primary ? 'bg-primary/10' : 'bg-gray-a/20'
+        } -translate-x-full pointer-events-none`}
         style={{ zIndex: 0 }}
       ></span>
       <span className="relative z-10">{children}</span>
