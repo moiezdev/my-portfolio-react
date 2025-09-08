@@ -3,7 +3,7 @@ import './App.css';
 import Index from './pages/Index';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { Component, useEffect, useState } from 'react';
+import { Component } from 'react';
 import { Suspense, lazy } from 'react';
 import Loading from './components/Loading';
 import Cursor from './components/ui/Cursor';
@@ -20,19 +20,6 @@ import ScrollToTop from './components/functions/ScrollToTop';
 // Component of the pages
 
 function App() {
-  const [colors, setColors] = useState({});
-  // Get root element
-  const root = document.documentElement;
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const getVar = (name) => getComputedStyle(root).getPropertyValue(name).trim();
-
-  useEffect(() => {
-    setColors({
-      primaryColor: getVar('--color-primary'),
-    });
-    document.title = 'MoiezDev | Portfolio';
-  }, [getVar]);
   return (
     <Router>
       <div>
@@ -51,7 +38,7 @@ function App() {
         </div>
         <Footer />
       </div>
-      <Cursor color={colors.primaryColor} size={25} />
+      <Cursor size={25} />
     </Router>
   );
 }

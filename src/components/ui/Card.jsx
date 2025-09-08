@@ -4,7 +4,7 @@ import Button from './Button';
 const Card = ({ className, title, description, techStack, liveLink, image, altText }) => {
   return (
     <div
-      className={`border border-gray-a hover:shadow-lg transition-shadow duration-300 ${className}`}
+      className={`border border-gray-a hover:shadow-lg transition-shadow duration-300 cursor-pointer cursor-scale-2 cursor-white ${className}`}
     >
       {image ? (
         <div className="relative border-b border-gray-a">
@@ -25,7 +25,11 @@ const Card = ({ className, title, description, techStack, liveLink, image, altTe
           <p className="">{description}</p>
           <div className="flex gap-[16px]">
             {liveLink && (
-              <Button onClick={() => window.open(liveLink, '_blank')} primary={true}>
+              <Button
+                className={`cursor-pointer cursor-primary`}
+                onClick={() => window.open(liveLink, '_blank')}
+                primary={true}
+              >
                 {'Live <~>'}
               </Button>
             )}

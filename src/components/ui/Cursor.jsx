@@ -1,23 +1,30 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 
 const Cursor = ({ color = '#FFFF00', size = 48 }) => {
   const cursorPointerRef = useRef(null);
   const cursorFollowerRef = useRef(null);
-  const [isPointer, setIsPointer] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const isPointerRef = useRef(false);
+  const isVisibleRef = useRef(true);
   const inactivityTimeout = useRef(null);
+  const colorRef = useRef(color);
+  const scaleRef = useRef(1);
 
   useEffect(() => {
     const cursorPointer = cursorPointerRef.current;
+    const cursorFollower = cursorFollowerRef.current;
 
-    // Start small and visible
-    gsap.set(cursorPointer, { scale: 0.4, opacity: 1 });
+    // Initial state
+    gsap.set(cursorPointer, { scale: 0.6, opacity: 1 });
+    gsap.set(cursorFollower, { scale: 1, opacity: 1 });
 
-    // Smooth follow
     const moveCursor = (e) => {
-      setIsVisible(true); // Show cursor on mouse move
-      resetInactivityTimer(); // Reset inactivity timer
+      if (!isVisibleRef.current) {
+        isVisibleRef.current = true;
+        updateCursorStyle(isPointerRef.current); // ← Reapply visible styles if it was hidden
+      }
+
+      resetInactivityTimer();
 
       gsap.to(cursorPointer, {
         x: e.clientX,
@@ -27,67 +34,102 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
       });
     };
 
-    // Detect hover state
+    const updateCursorStyle = (hovering) => {
+      const newScale = hovering ? scaleRef.current : 0.6;
+      const followerScale = hovering ? 0.6 : scaleRef.current;
+      const newColor = hovering ? colorRef.current : 'transparent';
+      const newOpacity = isVisibleRef.current ? 1 : 0;
+
+      gsap.to(cursorPointer, {
+        scale: newScale,
+        backgroundColor: newColor,
+        opacity: newOpacity,
+        duration: 0.25,
+        ease: 'power3.out',
+      });
+
+      gsap.to(cursorFollower, {
+        scale: followerScale,
+        opacity: hovering ? 0 : newOpacity,
+        duration: 0.25,
+        ease: 'power3.out',
+      });
+    };
+
     const updateCursorType = (e) => {
       let el = e.target;
+      let hovering = false;
+      scaleRef.current = 1; // reset to default scale
+
       while (el && el !== document.body) {
-        if (el.tagName === 'BUTTON' || el.tagName === 'A') {
-          setIsPointer(true);
-          return;
+        if (
+          el.tagName === 'BUTTON' ||
+          el.tagName === 'A' ||
+          el.classList.contains('cursor-pointer')
+        ) {
+          let scaleClass = Array.from(el.classList).find((c) => c.startsWith('cursor-scale-'));
+          if (scaleClass) {
+            const newScale = parseInt(scaleClass.replace('cursor-scale-', ''), 10);
+            if (!isNaN(newScale) && newScale > 0) {
+              scaleRef.current = newScale;
+            }
+          }
+          if (el.classList.contains('cursor-white')) {
+            colorRef.current = getComputedStyle(document.documentElement).getPropertyValue(
+              '--color-white'
+            );
+          } else if (el.classList.contains('cursor-primary')) {
+            colorRef.current = getComputedStyle(document.documentElement).getPropertyValue(
+              '--color-primary'
+            );
+          } else {
+            colorRef.current = '#FFFF00';
+          }
+          hovering = true;
+          break;
         }
         el = el.parentElement;
       }
-      setIsPointer(false);
+
+      if (hovering !== isPointerRef.current) {
+        isPointerRef.current = hovering;
+
+        updateCursorStyle(hovering, colorRef.current);
+        isVisibleRef.current = true;
+      }
     };
 
     const resetInactivityTimer = () => {
       if (inactivityTimeout.current) {
+        isVisibleRef.current = true;
         clearTimeout(inactivityTimeout.current);
       }
+
       inactivityTimeout.current = setTimeout(() => {
-        setIsVisible(false); // Hide cursor after 5 seconds of inactivity
+        isVisibleRef.current = false;
+        gsap.to(cursorPointer, { opacity: 0, duration: 0.3 });
+        gsap.to(cursorFollower, { opacity: 0, duration: 0.3 });
       }, 5000);
     };
 
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mousemove', updateCursorType);
-
-    // Hide native cursor
+    window.addEventListener('scroll', () => {
+      isVisibleRef.current = false;
+      gsap.to(cursorPointer, { opacity: 0, duration: 0.3 });
+      gsap.to(cursorFollower, { opacity: 0, duration: 0.3 });
+    });
     document.body.style.cursor = 'none';
-
-    // Start inactivity timer
     resetInactivityTimer();
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mousemove', updateCursorType);
+      window.removeEventListener('scroll', () => {});
       document.body.style.cursor = 'default';
-      if (inactivityTimeout.current) {
-        clearTimeout(inactivityTimeout.current);
-      }
+      clearTimeout(inactivityTimeout.current);
     };
-  }, []);
-
-  // Animate scale on state change
-  useEffect(() => {
-    if (cursorPointerRef.current) {
-      gsap.to(cursorPointerRef.current, {
-        scale: isPointer ? 1 : 0.6, // Larger when hovering, smaller when not
-        opacity: isVisible ? 1 : 0, // Hide cursor when not visible
-        duration: 0.25,
-        ease: 'power3.out',
-        backgroundColor: isPointer ? color : 'transparent', // Change color on hover
-      });
-    }
-    if (cursorFollowerRef.current) {
-      gsap.to(cursorFollowerRef.current, {
-        scale: isPointer ? 0.6 : 1, // Smaller inner circle when hovering
-        duration: 0.25,
-        ease: 'power3.out',
-        opacity: isPointer ? 0 : isVisible ? 1 : 0, // Hide follower when cursor is not visible
-      });
-    }
-  }, [color, isPointer, isVisible]);
+  }, [color]);
 
   return (
     <div
@@ -98,21 +140,19 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
         left: 0,
         width: size,
         height: size,
-        opacity: isVisible ? 1 : 0,
-        transition: 'opacity 0.3s ease',
         pointerEvents: 'none',
         transform: 'translate(-50%, -50%)',
         zIndex: 9999,
-        backgroundColor: color,
-        mixBlendMode: isPointer ? 'difference' : 'normal', // subtle color blending
-        isolation: 'isolate', // Ensure blend mode works
+        backgroundColor: 'transparent',
+        mixBlendMode: 'difference',
+        isolation: 'isolate',
       }}
     >
       <span
         ref={cursorFollowerRef}
         className="flex items-center justify-center w-full h-full border-[3px] border-white z-[-1]"
       >
-        <span className="inline-block bg-white w-[4px] h-[4px]"></span>
+        <span className="inline-block bg-white w-[4px] h-[4px] rounded-full"></span>
       </span>
     </div>
   );
