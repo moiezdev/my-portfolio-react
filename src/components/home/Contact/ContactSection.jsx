@@ -113,22 +113,24 @@ const ContactSection = () => {
             question, don’t hesitate to contact me.
           </p>
           <div>
-            <div className="border border-gray-a inline-flex flex-col gap-4 p-[16px]">
-              <h3>Message Me Directly</h3>
-              {contacts
-                .filter((contact) => contact.categories.includes('contact'))
-                .map((contact, index) => (
-                  <a
-                    className="flex items-center gap-2 cursor-pointer hover:text-primary"
-                    href={contact.url}
-                    target="_blank"
-                    key={index}
-                  >
-                    <img width={25} src={contact.icon} alt="" />
-                    {contact.handle}
-                  </a>
-                ))}
-            </div>
+            <Floating>
+              <div className="border border-gray-a inline-flex flex-col gap-4 p-[16px]">
+                <h3>Message Me Directly</h3>
+                {contacts
+                  .filter((contact) => contact.categories.includes('contact'))
+                  .map((contact, index) => (
+                    <a
+                      className="flex items-center gap-2 cursor-pointer hover:text-primary"
+                      href={contact.url}
+                      target="_blank"
+                      key={index}
+                    >
+                      <img width={25} src={contact.icon} alt="" />
+                      {contact.handle}
+                    </a>
+                  ))}
+              </div>
+            </Floating>
           </div>
         </div>
         <div className="relative order-1 md:order-2 flex justify-center md:justify-end">

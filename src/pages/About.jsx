@@ -2,6 +2,7 @@ import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 import { useSelector } from 'react-redux';
 import Magnetic from '../components/ui/Magnetic';
+import { Floating } from 'flowbite-react/components/Floating';
 
 const About = () => {
   const skills = useSelector((state) => state.skills.skills);
@@ -41,25 +42,27 @@ const About = () => {
                 {skills.map((skill, index) => {
                   if (index % 6 !== i) return null;
                   return (
-                    <Magnetic key={index} strength={0.1} duration={0.5}>
-                      <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300">
-                        <div className="flex flex-col">
-                          <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer cursor-white cursor-scale-1">
-                            {skill.category}
-                          </h2>
-                          <div className="flex flex-wrap gap-[8px] p-[8px] mt-0">
-                            {skill.items.map((item, idx) => (
-                              <span
-                                className="px-2.5 py-0.5 bg-gray-a/20 hover:scale-110 transition-all cursor-pointer cursor-scale-0 hover:bg-primary/20"
-                                key={idx}
-                              >
-                                {item}
-                              </span>
-                            ))}
+                    <Floating>
+                      <Magnetic key={index} strength={0.1} duration={0.5}>
+                        <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300">
+                          <div className="flex flex-col">
+                            <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer cursor-white cursor-scale-1">
+                              {skill.category}
+                            </h2>
+                            <div className="flex flex-wrap gap-[8px] p-[8px] mt-0">
+                              {skill.items.map((item, idx) => (
+                                <span
+                                  className="px-2.5 py-0.5 bg-gray-a/20 hover:scale-110 transition-all cursor-pointer cursor-scale-0 hover:bg-primary/20"
+                                  key={idx}
+                                >
+                                  {item}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Magnetic>
+                      </Magnetic>
+                    </Floating>
                   );
                 })}
               </div>
