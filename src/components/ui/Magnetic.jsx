@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 
-const Magnetic = ({ children, strength = 0.03, duration = 0.5 }) => {
+const Magnetic = ({ children, strength = 0.03, duration = 0.5 }, className) => {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +39,11 @@ const Magnetic = ({ children, strength = 0.03, duration = 0.5 }) => {
   }, [strength, duration]);
 
   return (
-    <div ref={wrapperRef} style={{ display: 'inline-block', willChange: 'transform' }}>
+    <div
+      className={`${className}`}
+      ref={wrapperRef}
+      style={{ display: 'inline-block', willChange: 'transform' }}
+    >
       {children}
     </div>
   );

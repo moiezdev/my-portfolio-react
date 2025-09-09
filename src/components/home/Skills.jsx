@@ -93,9 +93,9 @@ const Skills = () => {
                 {skills.map((skill, index) => {
                   if (index % 3 !== i) return null;
                   return (
-                    <Floating>
+                    <Floating duration={5}>
                       <Magnetic key={index} strength={0.1} duration={0.5}>
-                        <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300">
+                        <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300 w-full">
                           <div className="flex flex-col">
                             <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer cursor-white cursor-scale-1">
                               {skill.category}

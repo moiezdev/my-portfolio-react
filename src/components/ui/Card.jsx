@@ -4,7 +4,7 @@ import Floating from './Floating';
 
 const Card = ({ className, title, description, techStack, liveLink, image, altText }) => {
   return (
-    <Floating>
+    <Floating duration={5}>
       <div
         className={`border border-gray-a hover:shadow-lg transition-shadow duration-300 ${className}`}
       >

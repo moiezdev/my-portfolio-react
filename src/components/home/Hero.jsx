@@ -60,7 +60,9 @@ const Hero = () => {
             src="commas.svg"
             alt=""
           />
-          <p>When life gives you lemons, order pizza instead.</p>
+          <Magnetic strength={0.02}>
+            <p>When life gives you lemons, order pizza instead.</p>
+          </Magnetic>
           <img
             className="bg-gray-b w-[41px] absolute bottom-[-15px] right-[10px]"
             src="commas.svg"

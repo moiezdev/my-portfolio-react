@@ -12,7 +12,7 @@ const initialState = {
         },
         {
             category: 'Databases',
-            items: ['MongoDB', 'MySQL'],
+            items: ['MongoDB', 'MySQL', 'PostGreSQL'],
         },
         {
             category: 'Tools & Platforms',

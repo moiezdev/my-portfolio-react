@@ -104,6 +104,7 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
     window.addEventListener('mousemove', moveCursor);
     document.addEventListener('mouseover', (e) => checkElement(e.target));
     document.addEventListener('mouseout', (e) => checkElement(e.relatedTarget));
+    document.addEventListener('scroll', moveCursor);
 
     document.body.style.cursor = 'none';
     resetInactivityTimer();
