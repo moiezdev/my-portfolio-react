@@ -2,7 +2,7 @@ import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 import { useSelector } from 'react-redux';
 import Magnetic from '../components/ui/Magnetic';
-import { Floating } from 'flowbite-react/components/Floating';
+import Floating from '../components/ui/Floating';
 
 const About = () => {
   const skills = useSelector((state) => state.skills.skills);
@@ -42,8 +42,8 @@ const About = () => {
                 {skills.map((skill, index) => {
                   if (index % 6 !== i) return null;
                   return (
-                    <Floating>
-                      <Magnetic key={index} strength={0.1} duration={0.5}>
+                    <Floating key={index}>
+                      <Magnetic strength={0.1} duration={0.5}>
                         <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300 w-full">
                           <div className="flex flex-col">
                             <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer cursor-white cursor-scale-1">
