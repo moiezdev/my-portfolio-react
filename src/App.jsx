@@ -1,19 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Component } from 'react';
+import { Suspense, lazy } from 'react';
+
+// --- import Components ----
+
+import Index from './pages/Index';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { Suspense, lazy } from 'react';
 import Loading from './components/Loading';
 import Cursor from './components/ui/Cursor';
-import RouteTransition from './components/functions/RouteTransition';
 import ScrollToTop from './components/functions/ScrollToTop';
 
-// --- lazy loaded pages ---
+// --- import pages with lazy loading ---
+
 const Home = lazy(() => import('./pages/Index'));
-const ProjectsPage = lazy(() => import('./pages/Projects'));
-const AboutPage = lazy(() => import('./pages/About'));
-const ContactPage = lazy(() => import('./pages/Contact'));
+const Projects = lazy(() => import('./pages/Projects'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Component of the pages
 
 function App() {
   return (
@@ -24,14 +31,11 @@ function App() {
           <Suspense fallback={<Loading />}>
             <ScrollToTop />
             <Routes>
-              {/* Wrap all routes inside RouteTransition */}
-              {/* <Route element={<RouteTransition />}> */}
               <Route path="/" element={<Home />} />
-              <Route path="/works" element={<ProjectsPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/works" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
-              {/* </Route> */}
             </Routes>
           </Suspense>
         </div>
