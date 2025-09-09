@@ -10,11 +10,11 @@ const Hero = () => {
       <div className="app-container mx-auto grid grid-cols-1 md:grid-cols-9 items-center justify-center gap-6 pt-[80px] md:pt-[123px] md:pb-[80px]">
         {/* right section */}
         <div className="md:col-span-5 flex flex-col gap-4 cursor-pointer cursor-white">
-          <h1 className="text-xlarge font-semibold cursor-pointer cursor-white cursor-scale-3">
+          <h1 className="text-xlarge font-semibold cursor-pointer cursor-white cursor-scale-2">
             Moiz Dev is a <span className="text-primary">{'<Full Stack/>'}</span> <br />
             Developer
           </h1>
-          <p className="text-lg md:text-2xl max-w-2xl cursor-pointer cursor-white cursor-scale-2">
+          <p className="text-lg md:text-2xl max-w-2xl cursor-pointer cursor-white cursor-scale-1">
             Specialities: React, Vue, Tailwind CSS, Node.js, Express and more. Let's build together!
           </p>
           <div>
@@ -24,7 +24,7 @@ const Hero = () => {
         <div className="md:col-span-4 flex flex-col align-middle relative">
           {/* Floating SVGs and Image */}
 
-          <div className="absolute top-1/3 left-0 translate-x -translate-y-1/2 cursor-pointer cursor-white cursor-scale-7">
+          <div className="absolute top-1/3 left-0 translate-x -translate-y-1/2 cursor-pointer cursor-white cursor-scale-4">
             <Magnetic strength={0.4}>
               <Logo
                 className={'w-[170px]'}
