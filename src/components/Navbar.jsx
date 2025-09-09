@@ -11,7 +11,7 @@ const Navbar = () => {
     { id: 4, name: 'contact', link: '/contact' },
   ]);
   return (
-    <nav className="p-4 pb-3 fixed w-full top-0 left-0 z-10 bg-gray-b shadow-xl shadow-gray-b">
+    <nav className="p-4 pb-3 fixed w-full top-0 left-0 z-10 bg-gray-b">
       <SideLinks />
       <div className="app-container mx-auto flex justify-between items-center">
         <div className="flex items-center">
