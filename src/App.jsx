@@ -25,13 +25,13 @@ function App() {
             <ScrollToTop />
             <Routes>
               {/* Wrap all routes inside RouteTransition */}
-              <Route element={<RouteTransition />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/works" element={<ProjectsPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="*" element={<NotFound />} />
-              </Route>
+              {/* <Route element={<RouteTransition />}> */}
+              <Route path="/" element={<Home />} />
+              <Route path="/works" element={<ProjectsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFound />} />
+              {/* </Route> */}
             </Routes>
           </Suspense>
         </div>
