@@ -14,7 +14,7 @@ const About = () => {
         <p className="mt-[-20px] mb-[50px]">List of projects</p>
 
         <div className="grid md:gap-[60px] lg:gap-[97px] md:grid-cols-9">
-          <div className="md:col-span-5 order-2 md:order-1 flex flex-col justify-center">
+          <div className="md:col-span-5 order-2 md:order-1 flex flex-col">
             <h3 className="my-6 cursor-pointer cursor-white cursor-scale-1.2">Moiz Dev</h3>
             <p className="mb-6 cursor-pointer cursor-white cursor-scale-1.2">
               Hello, i’m Elias! I’m a self-taught front-end developer based in Kyiv, Ukraine. I can
