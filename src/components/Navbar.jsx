@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SideLinks from './ui/SideLinks';
 import Logo from './ui/Logo';
 
@@ -10,6 +10,7 @@ const Navbar = () => {
     { id: 3, name: 'about-me', link: '/about' },
     { id: 4, name: 'contact', link: '/contact' },
   ]);
+
   return (
     <nav className="p-4 pb-3 fixed w-full top-0 left-0 z-10 bg-gray-b">
       <SideLinks />
@@ -23,10 +24,13 @@ const Navbar = () => {
         <ul className="flex space-x-4">
           {navbtns.map((btn) => (
             <li key={btn.id}>
-              <Link to={btn.link} className="hover:text-white">
+              <NavLink
+                to={btn.link}
+                className={({ isActive }) => (isActive ? 'text-white' : 'hover:text-white')}
+              >
                 <span className="text-primary">#</span>
                 {btn.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
