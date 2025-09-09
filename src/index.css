@@ -66,3 +66,12 @@ body {
   animation: growHeight 20s ease-in-out infinite;
   animation-delay: 3s;
 }
+
+.logo-path {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+svg:hover .logo-path {
+  fill: #ff0000; /* Hover color */
+  stroke: #ff0000; /* Hover stroke color */
+}

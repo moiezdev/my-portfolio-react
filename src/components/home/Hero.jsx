@@ -14,7 +14,7 @@ const Hero = () => {
             Moiz Dev is a <span className="text-primary">{'<Full Stack/>'}</span> <br />
             Developer
           </h1>
-          <p className="text-lg md:text-2xl max-w-2xl cursor-pointer cursor-white cursor-scale-1">
+          <p className="text-lg md:text-2xl max-w-2xl cursor-pointer cursor-white cursor-scale-1.5">
             Specialities: React, Vue, Tailwind CSS, Node.js, Express and more. Let's build together!
           </p>
           <div>
@@ -24,8 +24,8 @@ const Hero = () => {
         <div className="md:col-span-4 flex flex-col align-middle relative">
           {/* Floating SVGs and Image */}
 
-          <div className="absolute top-1/3 left-0 translate-x -translate-y-1/2 cursor-pointer cursor-white cursor-scale-4">
-            <Magnetic strength={0.4}>
+          <div className="absolute top-1/3 left-0 translate-x -translate-y-1/2 cursor-pointer cursor-white cursor-scale-0">
+            <Magnetic strength={0.2}>
               <Logo
                 className={'w-[170px]'}
                 size={170}
