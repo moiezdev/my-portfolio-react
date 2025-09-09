@@ -18,44 +18,6 @@ const Projects = () => {
     // Kill old triggers
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
-    // Minimal and smooth entrance animation
-    gsap.fromTo(
-      cardsRef.current,
-      {
-        yPercent: 30, // start closer to final position
-        xPercent: 0, // no horizontal shift
-        opacity: 0,
-        scale: 0.95, // slight scale down
-        transformOrigin: 'center bottom',
-      },
-      {
-        yPercent: 0,
-        xPercent: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1.2, // shorter, smoother
-        ease: 'back.out(0.5)', // minimal bounce
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: cardsRef.current[0]?.parentNode,
-          start: 'top 80%', // slightly later
-          toggleActions: 'play none none none',
-        },
-      }
-    );
-
-    // Floating effect
-    cardsRef.current.forEach((card, i) => {
-      gsap.to(card, {
-        y: '+=8',
-        duration: 2 + i * 0.3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        delay: 1.5 + i * 0.2,
-      });
-    });
-
     // Magnetic hover effect
     cardsRef.current.forEach((card) => {
       const handleMouseMove = (e) => {
