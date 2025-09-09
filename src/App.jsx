@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Loading from './components/Loading';
 import Cursor from './components/ui/Cursor';
 import ScrollToTop from './components/functions/ScrollToTop';
+import ParallaxBackground from './components/ui/ParallaxBackground';
 
 // --- import pages with lazy loading ---
 
