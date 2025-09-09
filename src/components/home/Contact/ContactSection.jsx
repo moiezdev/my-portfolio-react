@@ -108,7 +108,7 @@ const ContactSection = () => {
     <>
       <div className="grid gap-4 md:grid-cols-2">
         <div className="flex flex-col justify-between order-2 md:order-1">
-          <p className="my-6">
+          <p className="my-6 cursor-pointer cursor-white cursor-scale-1.2">
             I’m interested in freelance opportunities. However, if you have other request or
             question, don’t hesitate to contact me.
           </p>
@@ -184,7 +184,8 @@ const ContactSection = () => {
                   ></textarea>
                   <label
                     htmlFor="contactMessage"
-                    className="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 px-2 text-sm transition-transform duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-primary bg-transpatent text-gray-a text-normal"
+                    className="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 px-2 text-sm transition-transform duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-primary peer-focus:bg-gray-b
+                     bg-transpatent text-gray-a text-normal"
                   >
                     Your Message Here
                   </label>

@@ -1,6 +1,7 @@
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 import { useSelector } from 'react-redux';
+import Magnetic from '../components/ui/Magnetic';
 
 const About = () => {
   const skills = useSelector((state) => state.skills.skills);
@@ -13,13 +14,13 @@ const About = () => {
 
         <div className="grid md:gap-[60px] lg:gap-[97px] md:grid-cols-9">
           <div className="md:col-span-5 order-2 md:order-1 flex flex-col justify-center">
-            <h3 className="my-6">Moiz Dev</h3>
-            <p className="mb-6">
+            <h3 className="my-6 cursor-pointer cursor-white cursor-scale-1.2">Moiz Dev</h3>
+            <p className="mb-6 cursor-pointer cursor-white cursor-scale-1.2">
               Hello, i’m Elias! I’m a self-taught front-end developer based in Kyiv, Ukraine. I can
               develop responsive websites from scratch and raise them into modern user-friendly web
               experiences.
             </p>
-            <p className="mb-6">
+            <p className="mb-6 cursor-pointer cursor-white cursor-scale-1.2">
               Transforming my creativity and knowledge into a websites has been my passion for over
               a year. I have been helping various clients to establish their presence online. I
               always strive to learn about the newest technologies and frameworks.
@@ -33,30 +34,32 @@ const About = () => {
 
         <div className="mt-[80px]">
           <SectionTitle title="skills" />
-          <div className="lg:col-span-4 grid gap-[16px] md:grid-cols-3">
+          <div className="lg:col-span-4 grid gap-[16px] md:grid-cols-6">
             {/* skill cards here */}
-            {[1, 2, 3].map((box, i) => (
+            {[1, 2, 3, 4, 5, 6].map((box, i) => (
               <div className="flex gap-[16px] flex-col" key={i}>
                 {skills.map((skill, index) => {
-                  if (index % 3 !== i) return null;
+                  if (index % 6 !== i) return null;
                   return (
-                    <div
-                      className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300"
-                      key={index}
-                    >
-                      <div className="flex flex-col">
-                        <h2 className="font-semibold text-white border-b border-gray-a p-[8px]">
-                          {skill.category}
-                        </h2>
-                        <div className="flex flex-wrap gap-[8px] p-[8px] mt-0">
-                          {skill.items.map((item, idx) => (
-                            <span className="px-2.5 py-0.5 bg-gray-a/20" key={idx}>
-                              {item}
-                            </span>
-                          ))}
+                    <Magnetic key={index} strength={0.1} duration={0.5}>
+                      <div className="border basis-1/3 border-gray-a hover:shadow-lg transition-shadow duration-300">
+                        <div className="flex flex-col">
+                          <h2 className="font-semibold text-white border-b border-gray-a p-[8px] cursor-pointer cursor-white cursor-scale-1">
+                            {skill.category}
+                          </h2>
+                          <div className="flex flex-wrap gap-[8px] p-[8px] mt-0">
+                            {skill.items.map((item, idx) => (
+                              <span
+                                className="px-2.5 py-0.5 bg-gray-a/20 hover:scale-110 transition-all cursor-pointer cursor-scale-0 hover:bg-primary/20"
+                                key={idx}
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Magnetic>
                   );
                 })}
               </div>

@@ -68,10 +68,10 @@ const Skills = () => {
               </Magnetic>
             </div>
 
-            <div className="absolute top-1/4 right-1/7 translate-x -translate-y-1/2">
+            <div className="absolute top-1/3 right-1/7 translate-x -translate-y-1/2">
               <Magnetic strength={0.1} duration={0.5}>
                 <Floating duration={8}>
-                  <div className="w-[100px] h-[100px] border border-gray-a"></div>
+                  <div className="w-[100px] h-[100px] border border-gray-a hover:bg-gray-a/10 transition-colors"></div>
                 </Floating>
               </Magnetic>
             </div>
@@ -79,7 +79,7 @@ const Skills = () => {
             <div className="absolute bottom-1/14 right-4 translate-x -translate-y-1/2">
               <Magnetic strength={0.1} duration={0.5}>
                 <Floating duration={8}>
-                  <div className="w-[65px] h-[65px] border border-gray-a"></div>
+                  <div className="w-[65px] h-[65px] border border-gray-a hover:bg-gray-a/10 transition-colors"></div>
                 </Floating>
               </Magnetic>
             </div>
