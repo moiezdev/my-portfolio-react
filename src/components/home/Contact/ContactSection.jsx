@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Loading from '../../Loading';
+import Floating from '../../ui/Floating';
 
 const Error = ({ message, setError }) => (
   <div
