@@ -50,7 +50,7 @@ const Navbar = () => {
       <div className="app-container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <span className="text-white font-bold flex items-center gap-1">
+          <span className="text-white font-bold flex items-center gap-1 py-1">
             <Logo size={35} staticLogo={true} />
             MoizDev
           </span>

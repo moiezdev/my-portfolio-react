@@ -11,8 +11,8 @@ export default function Transition({ children }) {
     // Animate in on mount
     gsap.fromTo(
       el,
-      { opacity: 0, scale: 0.95, filter: 'blur(12px)', delay: 1 },
-      { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out' }
+      { opacity: 0, scale: 0.98, filter: 'blur(12px)' },
+      { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.3, ease: 'power2.out' }
     );
   }, []);
 
