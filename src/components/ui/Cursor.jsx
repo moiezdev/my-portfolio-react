@@ -133,6 +133,7 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
         mixBlendMode: 'difference',
         isolation: 'isolate',
       }}
+      className="max-md:hidden"
     >
       <span
         ref={cursorFollowerRef}
