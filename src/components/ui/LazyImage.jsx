@@ -43,9 +43,9 @@ const LazyImage = ({
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${wrapperClass}`}>
       {/* Shimmer placeholder */}
-      {!loaded && src && (
+      {!loaded && (
         <div className="absolute bg-transparent flex items-center justify-center top-0 left-0 w-full h-full">
-          <img className="m-auto w-full h-full" src={blurSrc} alt={blurSrc} />
+          <img className="m-auto w-full" src={blurSrc} alt={blurSrc} />
         </div>
       )}
 
