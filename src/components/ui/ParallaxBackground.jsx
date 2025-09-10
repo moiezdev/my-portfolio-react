@@ -22,7 +22,7 @@ const ParallaxBackground = ({ imageUrl }) => {
   return (
     <div
       ref={bgRef}
-      className="fixed top-0 left-0 w-full h-full -z-10 bg-no-repeat bg-center bg-cover"
+      className="absolute top-0 left-0 w-full h-full -z-10 bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${imageUrl})` }}
     ></div>
   );

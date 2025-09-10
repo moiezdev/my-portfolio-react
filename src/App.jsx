@@ -28,7 +28,8 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <div className="relative z-0">
+        <div className="relative z-0 overflow-hidden">
+          <ParallaxBackground imageUrl={'/background.png'} />
           <Suspense fallback={<Loading />}>
             <ScrollToTop />
             <Routes>

@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Card from '../components/ui/Card';
 import SectionTitle from '../components/ui/SectionTitle';
 import Transition from '../components/functions/Transition';
-import ParallaxBackground from '../components/ui/ParallaxBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,7 +57,6 @@ const Projects = () => {
 
   return (
     <Transition>
-      <ParallaxBackground imageUrl={'/background.png'} />
       <section className="w-full px-4 py-12" id="projects">
         <div className="app-container mx-auto pt-[80px] md:py-[60px]">
           {/* component title */}
