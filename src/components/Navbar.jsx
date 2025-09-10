@@ -45,7 +45,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="p-4 pb-3 fixed w-full top-0 left-0 z-30 bg-gray-b">
+    <div className="p-4 pb-3 fixed w-full top-0 left-0 z-30 bg-gray-b">
       <SideLinks />
       <div className="app-container mx-auto flex justify-between items-center">
         {/* Logo */}
@@ -127,7 +127,7 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-    </nav>
+    </div>
   );
 };
 

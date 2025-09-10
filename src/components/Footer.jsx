@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 const Footer = () => {
   const contacts = useSelector((state) => state.contacts.contacts);
   return (
-    <footer className="relative w-full border-t border-t-gray-300/20  px-4 py-6 mt-12 z-20">
+    <footer className="relative w-full border-t border-t-gray-300/20  px-4 py-6 mt-12 z-0">
       <div className="app-container mx-auto text-sm text-gray-500">
         <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
           <div>

@@ -49,9 +49,9 @@ const Hero = () => {
           {/* Floating SVGs and Image end */}
 
           <LazyImage
-            src="/heroSection/hero-img.png"
+            src="/heroSection/hero-img.webp"
             alt="Moiz"
-            className="w-[80%] ml-auto mr-[10%]"
+            className="w-[80%] ml-auto mr-[10%] aspect-square"
           />
           <div className="border inline-block border-gray-a p-1 mx-auto cursor-pointer cursor-white">
             <span className="bg-primary h-[16px] aspect-square inline-block mb-[-2px] mr-1"></span>

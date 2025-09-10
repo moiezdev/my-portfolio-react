@@ -14,7 +14,7 @@ const Card = ({ className, title, description, techStack, liveLink, codeLink, im
             <LazyImage
               src={image}
               alt={altText || title}
-              className="w-full aspect-[16/10] object-cover cursor-pointer cursor-scale-4 cursor-white max-h-[210px]"
+              className="w-full aspect-[16/10] object-cover cursor-pointer cursor-scale-4 cursor-white h-[210px]"
             />
           </div>
         ) : null}

@@ -37,6 +37,7 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
       const followerScale = hovering ? 0.6 : scaleRef.current;
       const newColor = hovering ? colorRef.current : 'transparent';
       const newOpacity = isVisibleRef.current ? 1 : 0;
+      document.body.style.cursor = 'none';
 
       gsap.to(cursorPointer, {
         scale: newScale,
@@ -133,7 +134,6 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
         mixBlendMode: 'difference',
         isolation: 'isolate',
       }}
-      className="max-md:hidden"
     >
       <span
         ref={cursorFollowerRef}
