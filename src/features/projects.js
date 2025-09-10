@@ -8,8 +8,8 @@ const initialState = {
                 "A personal portfolio website to showcase projects, skills, and experience.",
             technologies: ["Html", "SCSS", "JavaScript", "React", "Redux Toolkit", "Nodejs", "Express", "MongoDB"],
             imageUrl: "/projects-media/lms/main.png",
-            projectUrl: "http://example.com/portfolio",
-            githubUrl: "moizdev/portfolio-website",
+            // projectUrl: "http://example.com/portfolio",
+            githubUrl: "https://github.com/moiezdev/LMS",
             media: ['img1.png', 'img2.png']
         },
         {
@@ -20,7 +20,7 @@ const initialState = {
             technologies: ["Nuxt", "Vuex", "Buefy", "JavaScript", "Bootstrap5", "SCSS", "Sabre", "Amadeus"],
             imageUrl: "/projects-media/aa-tourism/main.png",
             projectUrl: "http://aatourism.ca/",
-            githubUrl: "http://aatourism.ca/",
+            githubUrl: "https://github.com/moiezdev/AAtourism",
             media: ['img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png'],
         },
         {
@@ -30,8 +30,8 @@ const initialState = {
                 "A personal portfolio website to showcase projects, skills, and experience.",
             technologies: ["Html", "SCSS", "JavaScript"],
             imageUrl: "/projects-media/ain-saas/main.png",
-            projectUrl: "http://example.com/portfolio",
-            githubUrl: "moizdev/portfolio-website",
+            projectUrl: "https://ain-saiss.ma",
+            // githubUrl: "moizdev/portfolio-website",
             media: ['img1.png', 'img2.png', 'img3.png']
         },
         {
@@ -41,8 +41,8 @@ const initialState = {
                 "A personal portfolio website to showcase projects, skills, and experience.",
             technologies: ["Html", "SCSS", "JavaScript", "Jquery"],
             imageUrl: "/projects-media/city-arrivals/main.png",
-            projectUrl: "http://example.com/portfolio",
-            githubUrl: "moizdev/portfolio-website",
+            projectUrl: "https://cityarrivals.ca",
+            // githubUrl: "moizdev/portfolio-website",
             media: ['img1.png', 'img2.png']
         },
         {
@@ -51,9 +51,9 @@ const initialState = {
             description:
                 "A personal portfolio website to showcase projects, skills, and experience.",
             technologies: ["React", "TailwindCSS", "JavaScript", "Redux Toolkit"],
-            imageUrl: "/projectImages/portfolio.png",
-            projectUrl: "http://example.com/portfolio",
-            githubUrl: "moizdev/portfolio-website",
+            imageUrl: "/projects-media/portfolio/main.png",
+            projectUrl: "http://moiezdev.com",
+            githubUrl: "https://github.com/moiezdev/my-portfolio-react",
             media: ['img1.png', 'img2.png', 'img3.png']
         },
     ],

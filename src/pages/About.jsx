@@ -7,6 +7,7 @@ import Transition from '../components/functions/Transition';
 
 const About = () => {
   const skills = useSelector((state) => state.skills.skills);
+  const about = useSelector((state) => state.about.about);
   return (
     <Transition>
       <section className="w-full px-4 py-12" id="projects">
@@ -17,17 +18,14 @@ const About = () => {
 
           <div className="grid md:gap-[60px] lg:gap-[97px] md:grid-cols-9">
             <div className="md:col-span-5 order-2 md:order-1 flex flex-col">
-              <h3 className="my-6 cursor-pointer cursor-white cursor-scale-1.2">Moiz Dev</h3>
-              <p className="mb-6 cursor-pointer cursor-white cursor-scale-1.2">
-                Hello, i’m Elias! I’m a self-taught front-end developer based in Kyiv, Ukraine. I
-                can develop responsive websites from scratch and raise them into modern
-                user-friendly web experiences.
-              </p>
-              <p className="mb-6 cursor-pointer cursor-white cursor-scale-1.2">
-                Transforming my creativity and knowledge into a websites has been my passion for
-                over a year. I have been helping various clients to establish their presence online.
-                I always strive to learn about the newest technologies and frameworks.
-              </p>
+              <h3 className="my-6 cursor-pointer cursor-white cursor-scale-1.2 text-large">
+                {about.title}
+              </h3>
+              {about.description.map((p, idx) => (
+                <p className="mb-6 cursor-pointer cursor-white cursor-scale-1.2" key={idx}>
+                  {p}
+                </p>
+              ))}
             </div>
             <div className="md:col-span-4 order-1 md:order-2 relative">
               {/* <div className="absolute w-full h-full bg-gray-b/30"></div> */}

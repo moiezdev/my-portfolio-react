@@ -3,6 +3,7 @@ import Button from '../ui/Button';
 import Logo from '../ui/Logo';
 import FloatingDotBox from '../ui/animatedSvgs/FloatingDotBox';
 import Magnetic from '../ui/Magnetic';
+import LazyImage from '../ui/LazyImage';
 
 const Hero = () => {
   return (
@@ -47,7 +48,11 @@ const Hero = () => {
 
           {/* Floating SVGs and Image end */}
 
-          <img src="/heroSection/hero-img.png" alt="Moiz" className="w-[80%] ml-auto mr-[10%]" />
+          <LazyImage
+            src="/heroSection/hero-img.png"
+            alt="Moiz"
+            className="w-[80%] ml-auto mr-[10%]"
+          />
           <div className="border inline-block border-gray-a p-1 mx-auto cursor-pointer cursor-white">
             <span className="bg-primary h-[16px] aspect-square inline-block mb-[-2px] mr-1"></span>
             Currently working on <span className="text-white">LMS project</span>
@@ -62,7 +67,7 @@ const Hero = () => {
             alt=""
           />
           <Magnetic strength={0.02}>
-            <p>When life gives you lemons, order pizza instead.</p>
+            <p>Frontend is where dreams become screens.</p>
           </Magnetic>
           <img
             className="bg-gray-b w-[41px] absolute bottom-[-15px] right-[10px]"
@@ -71,7 +76,7 @@ const Hero = () => {
           />
         </div>
         <div className="border border-gray-a p-[16px] inline-block mt-[-1px] cursor-pointer cursor-white cursor-scale-2">
-          <p>- Uncle Bob</p>
+          <p>--- Mr Unknown</p>
         </div>
       </div>
     </section>

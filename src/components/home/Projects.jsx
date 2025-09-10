@@ -70,6 +70,7 @@ const Projects = () => {
                 description={project.subtitle}
                 techStack={project.technologies}
                 liveLink={project.projectUrl}
+                codeLink={project.githubUrl}
                 image={project.imageUrl}
                 altText={`${project.title} image`}
               />

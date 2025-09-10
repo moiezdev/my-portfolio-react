@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from './Button';
 import Floating from './Floating';
+import LazyImage from './LazyImage';
 
-const Card = ({ className, title, description, techStack, liveLink, image, altText }) => {
+const Card = ({ className, title, description, techStack, liveLink, codeLink, image, altText }) => {
   return (
     <Floating duration={5}>
       <div
@@ -10,10 +11,10 @@ const Card = ({ className, title, description, techStack, liveLink, image, altTe
       >
         {image ? (
           <div className="relative border-b border-gray-a">
-            <img
+            <LazyImage
               src={image}
               alt={altText || title}
-              className="w-full aspect-[16/10] object-cover cursor-pointer cursor-scale-4 cursor-white"
+              className="w-full aspect-[16/10] object-cover cursor-pointer cursor-scale-4 cursor-white max-h-[210px]"
             />
           </div>
         ) : null}
@@ -42,8 +43,8 @@ const Card = ({ className, title, description, techStack, liveLink, image, altTe
                   {'Live <~>'}
                 </Button>
               )}
-              {liveLink && (
-                <Button onClick={() => window.open(liveLink, '_blank')}>{'Cached >='}</Button>
+              {codeLink && (
+                <Button onClick={() => window.open(codeLink, '_blank')}>{'Github >='}</Button>
               )}
             </div>
           </div>
