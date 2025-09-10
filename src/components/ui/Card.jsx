@@ -6,7 +6,7 @@ const Card = ({ className, title, description, techStack, liveLink, image, altTe
   return (
     <Floating duration={5}>
       <div
-        className={`border border-gray-a hover:shadow-lg transition-shadow duration-300 ${className}`}
+        className={`border bg-gray-b border-gray-a hover:shadow-lg transition-shadow duration-300 ${className}`}
       >
         {image ? (
           <div className="relative border-b border-gray-a">
