@@ -26,7 +26,7 @@ const Hero = () => {
         <div className="md:col-span-4 flex flex-col align-middle relative">
           {/* Floating SVGs and Image */}
 
-          <div className="absolute top-1/3 left-0 translate-x -translate-y-1/2 cursor-pointer cursor-white cursor-scale-0">
+          <div className="absolute top-1/3 left-0 translate-x -translate-y-1/2 cursor-pointer cursor-white cursor-scale-0 z-10">
             <Magnetic strength={0.2}>
               <Logo
                 className={'w-[170px]'}
@@ -52,6 +52,7 @@ const Hero = () => {
             src="/heroSection/hero-img.webp"
             alt="Moiz"
             className="w-[80%] ml-auto mr-[10%] aspect-square"
+            wrapperClass="relative z-0 cursor-pointer cursor-white cursor-scale-1.5"
           />
           <div className="absolute top-full left-1/2 -translate-x-1/2 border border-gray-a inline-flex items-center p-1 mx-auto cursor-pointer cursor-white w-max">
             <span className="bg-primary h-[16px] aspect-square inline-block mb-[-2px] mr-1"></span>
