@@ -14,17 +14,6 @@ export default function Transition({ children }) {
       { opacity: 0, scale: 0.95, filter: 'blur(12px)', delay: 1 },
       { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out' }
     );
-
-    return () => {
-      // Animate out on unmount
-      gsap.to(el, {
-        opacity: 0,
-        scale: 0.95,
-        filter: 'blur(12px)',
-        duration: 0.4,
-        ease: 'power2.inOut',
-      });
-    };
   }, []);
 
   return (

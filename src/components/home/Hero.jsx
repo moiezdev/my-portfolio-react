@@ -53,9 +53,11 @@ const Hero = () => {
             alt="Moiz"
             className="w-[80%] ml-auto mr-[10%] aspect-square"
           />
-          <div className="border inline-block border-gray-a p-1 mx-auto cursor-pointer cursor-white">
+          <div className="absolute top-full left-1/2 -translate-x-1/2 border border-gray-a inline-flex items-center p-1 mx-auto cursor-pointer cursor-white w-max">
             <span className="bg-primary h-[16px] aspect-square inline-block mb-[-2px] mr-1"></span>
-            Currently working on <span className="text-white">LMS project</span>
+            <p className="flex gap-1">
+              Currently working on <span className="text-white">LMS project</span>
+            </p>
           </div>
         </div>
       </div>
