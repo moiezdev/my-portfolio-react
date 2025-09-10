@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import SideLinks from './ui/SideLinks';
 import Logo from './ui/Logo';
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const navbtns = [
     { id: 1, name: 'home', link: '/' },
@@ -13,8 +15,37 @@ const Navbar = () => {
     { id: 4, name: 'contact', link: '/contact' },
   ];
 
+  // Swipe detection
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+      touchEndX.current = e.changedTouches[0].clientX;
+      const deltaX = touchStartX.current - touchEndX.current;
+
+      if (deltaX > 50) {
+        // swipe left → open menu
+        setNavOpen(true);
+      }
+      if (deltaX < -50) {
+        // swipe right → close menu
+        setNavOpen(false);
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, []);
+
   return (
-    <nav className="p-4 pb-3 fixed w-full top-0 left-0 z-20 bg-gray-b">
+    <nav className="p-4 pb-3 fixed w-full top-0 left-0 z-30 bg-gray-b">
       <SideLinks />
       <div className="app-container mx-auto flex justify-between items-center">
         {/* Logo */}
@@ -43,11 +74,10 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setNavOpen(!navOpen)}
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none z-40"
         >
           {navOpen ? (
-            // X icon
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -56,8 +86,7 @@ const Navbar = () => {
               />
             </svg>
           ) : (
-            // Hamburger icon
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -69,27 +98,35 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      {navOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-gray-b shadow-lg">
-          <ul className="flex flex-col space-y-4 p-4">
-            {navbtns.map((btn) => (
-              <li key={btn.id}>
-                <NavLink
-                  to={btn.link}
-                  onClick={() => setNavOpen(false)} // close on click
-                  className={({ isActive }) =>
-                    isActive ? 'text-white block' : 'hover:text-white block'
-                  }
-                >
-                  <span className="text-primary">#</span>
-                  {btn.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Overlay background */}
+      <div
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+          navOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+        onClick={() => setNavOpen(false)}
+      />
+
+      {/* SideNav */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-gray-b shadow-lg transform transition-transform duration-500 ease-in-out ${
+          navOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <ul className="flex flex-col p-6 space-y-6 text-lg mt-7">
+          {navbtns.map((btn) => (
+            <li key={btn.id}>
+              <NavLink
+                to={btn.link}
+                onClick={() => setNavOpen(false)} // close on click
+                className={({ isActive }) => (isActive ? 'text-white' : 'hover:text-white')}
+              >
+                <span className="text-primary">#</span>
+                {btn.name}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };

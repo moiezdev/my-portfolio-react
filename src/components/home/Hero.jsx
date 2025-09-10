@@ -11,7 +11,8 @@ const Hero = () => {
         {/* right section */}
         <div className="md:col-span-5 flex flex-col gap-4 cursor-pointer cursor-white">
           <h1 className="text-xlarge font-semibold cursor-pointer cursor-white cursor-scale-2">
-            Moiz Dev is a <span className="text-primary">{'<Full Stack/>'}</span> <br />
+            Moiz Dev is a <br className="block lg:hidden" />{' '}
+            <span className="text-primary">{'<Full Stack/>'}</span> <br />
             Developer
           </h1>
           <p className="text-lg md:text-2xl max-w-2xl cursor-pointer cursor-white cursor-scale-1.5">
