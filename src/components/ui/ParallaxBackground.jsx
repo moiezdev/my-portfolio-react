@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const ParallaxBackground = ({ imageUrl }) => {
-  const bgRef = useRef();
+  const bgRef = useRef(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -10,6 +10,11 @@ const ParallaxBackground = ({ imageUrl }) => {
         bgRef.current.style.transform = `translateY(${offset}px)`;
       }
     };
+    window.scrollTo({
+      top: 1,
+      left: 0,
+      behavior: 'smooth', // or "auto" if you don’t want animation
+    });
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

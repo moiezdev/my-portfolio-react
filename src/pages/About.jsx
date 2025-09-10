@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 import Magnetic from '../components/ui/Magnetic';
 import Floating from '../components/ui/Floating';
 import Transition from '../components/functions/Transition';
+import ParallaxBackground from '../components/ui/ParallaxBackground';
 
 const About = () => {
   const skills = useSelector((state) => state.skills.skills);
   return (
     <Transition>
+      <ParallaxBackground imageUrl={'/background.png'} />
       <section className="w-full px-4 py-12" id="projects">
         <div className="app-container mx-auto pt-[80px] md:py-[60px]">
           {/* component title */}
