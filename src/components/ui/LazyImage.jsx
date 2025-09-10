@@ -1,7 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 
-const LazyImage = ({ src, alt, className = 'w-full h-full', wrapperClass = '' }) => {
+const LazyImage = ({
+  src,
+  blurSrc = `${src.split('.').slice(0, -1).join('.')}-blur.webp`,
+  alt,
+  className = 'w-full h-full',
+  wrapperClass = '',
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef();
@@ -37,9 +43,9 @@ const LazyImage = ({ src, alt, className = 'w-full h-full', wrapperClass = '' })
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${wrapperClass}`}>
       {/* Shimmer placeholder */}
-      {!loaded && (
+      {!loaded && src && (
         <div className="absolute bg-transparent flex items-center justify-center top-0 left-0 w-full h-full">
-          <img className="m-auto w-25" src="/lazyImage.svg" alt="" />
+          <img className="m-auto w-full h-full" src={blurSrc} alt={blurSrc} />
         </div>
       )}
 
