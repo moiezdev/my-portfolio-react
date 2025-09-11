@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Card from '../ui/Card';
 import SectionTitle from '../ui/SectionTitle';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,7 +61,8 @@ const Projects = () => {
         <SectionTitle title="projects" buttonText="View all" link="/works" />
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.slice(0, 3).map((project, index) => (
-            <div
+            <Link
+              to={`/works/${project.id}`}
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
               className="will-change-transform"
@@ -74,7 +76,7 @@ const Projects = () => {
                 image={project.imageUrl}
                 altText={`${project.title} image`}
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -59,11 +59,13 @@ export default function ImageSlider({ images = [] }) {
     let currentSlide, nextSlide;
 
     const handleTouchStart = (e) => {
+      if (images.length <= 1) return;
       touchStartX.current = e.touches[0].clientX;
       currentSlide = trackRef.current.children[idx];
     };
 
     const handleTouchMove = (e) => {
+      if (images.length <= 1) return;
       touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
       const percent = (touchDeltaX.current / el.clientWidth) * 100;
       gsap.set(currentSlide, { xPercent: percent });
