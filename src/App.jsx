@@ -26,10 +26,10 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 function App() {
   return (
     <Router>
-      <div>
+      <div className="overflow-hidden">
         <Navbar />
         <div className="relative z-0 overflow-hidden">
-          <ParallaxBackground className={'max-md:hidden'} imageUrl={'/background.png'} />
+          <ParallaxBackground imageUrl={'/background.png'} />
           <Suspense fallback={<Loading />}>
             <ScrollToTop />
             <Routes>

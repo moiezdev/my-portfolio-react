@@ -5,40 +5,171 @@ const initialState = {
             title: "LMS",
             subtitle: "Learning Management System FullStack (Under Development)",
             description:
-                "A personal portfolio website to showcase projects, skills, and experience.",
-            technologies: ["Html", "SCSS", "JavaScript", "React", "Redux Toolkit", "Nodejs", "Express", "MongoDB"],
+                [
+                    "LMS – Learning Management System",
+                    [
+                        "This is my own project to make learning easier online, with features like quizzes, dashboards, and progress tracking.",
+                        "The interface is simple and works well on both desktop and mobile, so learners can use it anywhere.",
+                        "Added interactive parts so users can see their progress and navigate courses without confusion.",
+                        "Tried to keep everything fast and clean so it doesn’t feel slow even with lots of content.",
+                        "Connected it with backend stuff like Node and MongoDB to save and manage all the data smoothly."
+                    ]
+                ],
+            technologies: ["HTML", "SCSS", "JavaScript", "React", "Redux Toolkit", "Node.js", "Express", "MongoDB"],
             imageUrl: "/projects-media/lms/main.webp",
-            // projectUrl: "http://example.com/portfolio",
             githubUrl: "https://github.com/moiezdev/LMS",
             media: ['img1.png', 'img2.png']
+        },
+        {
+            title: "Portfolio Website",
+            subtitle: "My Personal Portfolio",
+            description:
+                [
+                    "MoezDev – Personal Portfolio Website",
+                    [
+                        "Built my personal portfolio from scratch to showcase my projects, skills, and experience as a frontend developer.",
+                        "Focused on creating a clean, responsive, and intuitive design that works smoothly on both desktop and mobile devices.",
+                        "Added interactive elements like project previews and smooth animations to make the site feel dynamic and engaging.",
+                        "Optimized the website for fast loading and a seamless user experience, keeping performance and accessibility in mind.",
+                        "Worked closely on the overall look and feel, making sure the design reflects my personal style and professional brand."
+                    ]
+                ],
+            technologies: ["React", "TailwindCSS", "JavaScript", "Redux Toolkit"],
+            imageUrl: "/projects-media/portfolio/main.webp",
+            projectUrl: "http://moiezdev.com",
+            githubUrl: "https://github.com/moiezdev/my-portfolio-react",
+            media: ['img1.png', 'img2.png', 'img3.png']
+        },
+        {
+            title: "Scmborba",
+            subtitle: "Social Services Website",
+            description:
+                [
+                    "Santa Casa da Misericórdia de Borba – Institutional Website",
+                    [
+                        "Contributed as a Frontend Developer, focusing on UI/UX improvements and Vue.js development.",
+                        "Translated complex design requirements into a clean, responsive, and accessible user interface.",
+                        "Implemented dynamic components in Vue.js to enhance site navigation and user engagement.",
+                        "Collaborated with the team to modernize the visual identity of a non-profit social services institution, ensuring the platform clearly communicates its mission, services, and community initiatives.",
+                        "Optimized performance and usability for a wide audience, including elderly users and families seeking social support."
+                    ]
+                ],
+            technologies: ["React", "TailwindCSS", "JavaScript", "Redux Toolkit"],
+            imageUrl: "/projects-media/scmborba/main.webp",
+            projectUrl: "http://scmborba.pt",
+            // githubUrl: "https://github.com/moiezdev/my-portfolio-react",
+            media: ['img1.png', 'img2.png', 'img3.png']
         },
         {
             title: "AATourism",
             subtitle: "Flight Booking Platform",
             description:
-                "A full-featured e-commerce website with product listings, shopping cart, and payment integration.",
-            technologies: ["Nuxt", "Vuex", "Buefy", "JavaScript", "Bootstrap5", "SCSS", "Sabre", "Amadeus"],
+                [
+                    "AA Tourism – Flight Booking Platform",
+                    [
+                        "A site to search and book flights easily using Sabre and Amadeus APIs.",
+                        "Built the frontend with Nuxt 2, Vuex, Buefy, and Bootstrap, with small animations here and there to make it feel alive.",
+                        "Forms, flight lists, and booking steps are interactive but simple, so users don’t get lost.",
+                        "The site works smoothly on both mobile and desktop, even with real-time flight data from the APIs.",
+                        "Kept the visuals clean and consistent with the brand colors and style."
+                    ]
+                ],
+            technologies: ["Nuxt 2", "Vuex", "Buefy", "Bootstrap 5", "JavaScript", "SCSS", "Sabre", "Amadeus"],
             imageUrl: "/projects-media/aa-tourism/main.webp",
             projectUrl: "http://aatourism.ca/",
             githubUrl: "https://github.com/moiezdev/AAtourism",
-            media: ['img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png'],
+            media: ['img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png']
+        },
+        {
+            title: "D’Ocean Fisheries",
+            subtitle: "Seafood Supplier Website",
+            description:
+                [
+                    "D’Ocean Fisheries – Seafood Supplier Website",
+                    [
+                        "Created a fresh and simple frontend so customers can easily explore different seafood categories like live, frozen, and fillets.",
+                        "Designed the pages to be responsive, so everything looks clean and easy to use on both desktop and mobile screens.",
+                        "Added product sections with quick links and quote/contact forms to make browsing and inquiries straightforward.",
+                        "Focused on clear visuals, spacing, and smooth navigation so the site feels professional without being overwhelming.",
+                        "Worked with imagery, colors, and layout to reflect the brand identity of a seafood supplier."
+                    ]
+                ],
+            technologies: ["HTML", "CSS", "JavaScript"],
+            imageUrl: "/projects-media/docean-fisheries/main.webp",
+            projectUrl: "https://doceanfisheries.com/",
+            media: ["img1.png", "img2.png", "img3.png"]
+        },
+        {
+            title: "Gala Travels",
+            subtitle: "Flight Booking Platform",
+            description:
+                [
+                    "Gala Travels – Flight Booking Platform",
+                    [
+                        "A platform for booking flights using Sabre API, with a smooth and simple user experience.",
+                        "Frontend built with Vue/Nuxt 2, Buefy, Bootstrap, and subtle animations to make interactions more engaging.",
+                        "Interactive booking forms, flight listings, and itinerary views are designed to be easy to use.",
+                        "The site adapts nicely to mobile and desktop screens, handling API data seamlessly.",
+                        "Worked on keeping the visuals consistent with the brand and making the interface approachable."
+                    ]
+                ],
+            technologies: ["Nuxt 2", "Vue", "Buefy", "Bootstrap 5", "JavaScript", "SCSS", "Sabre"],
+            imageUrl: "/projects-media/gala-travels/main.webp",
+            githubUrl: "https://github.com/moiezdev/gala-saber",
+            media: ['img1.png', 'img2.png', 'img3.png']
+        },
+        {
+            title: "Mian's Travels",
+            subtitle: "Flight Booking Platform",
+            description:
+                [
+                    "Mian's Travels – Flight Booking Platform",
+                    [
+                        "A flight booking site using Sabre API, made to feel simple and intuitive for users.",
+                        "Frontend made with Nuxt 2, Vue, Buefy, Bootstrap, including small animations for better interactions.",
+                        "Booking forms, flight searches, and listings are straightforward and easy to navigate.",
+                        "Works well on mobile and desktop, fetching data from Sabre API without any hiccups.",
+                        "Focused on keeping the design clean, readable, and consistent with the brand style."
+                    ]
+                ],
+            technologies: ["Nuxt 2", "Vue", "Buefy", "Bootstrap 5", "JavaScript", "SCSS", "Sabre"],
+            imageUrl: "/projects-media/mian-travels/main.webp",
+            githubUrl: "https://github.com/moiezdev/MiansTravels",
+            media: ['img1.png', 'img2.png', 'img3.png']
         },
         {
             title: "Ain Saas",
             subtitle: "Ecommerce Website",
             description:
-                "A personal portfolio website to showcase projects, skills, and experience.",
-            technologies: ["Html", "SCSS", "JavaScript"],
+                [
+                    "Ain Saiss – Water Utility / Institutional Website",
+                    [
+                        "Made a simple and modern frontend to show the services and info clearly.",
+                        "Works on desktops and phones, and everything adjusts nicely depending on screen size.",
+                        "Added small interactive bits like menus and cards to make browsing a little more fun.",
+                        "Tried to keep it fast and easy to use for everyone, including people who use assistive tech.",
+                        "Worked with the team to keep colors, fonts, and visuals consistent with the brand."
+                    ]
+                ],
+            technologies: ["HTML", "SCSS", "JavaScript"],
             imageUrl: "/projects-media/ain-saas/main.webp",
             projectUrl: "https://ain-saiss.ma",
-            // githubUrl: "moizdev/portfolio-website",
             media: ['img1.png', 'img2.png', 'img3.png']
         },
         {
             title: "City Arrivals",
             subtitle: "Luxry Car Rental",
             description:
-                "A personal portfolio website to showcase projects, skills, and experience.",
+                [
+                    "City Arrivals – Airport Transfer & Limousine Service Website",
+                    [
+                        "Served as a Frontend Developer, specializing in creating a seamless and user-friendly booking experience.",
+                        "Developed responsive layouts to ensure optimal performance across various devices, enhancing user engagement.",
+                        "Integrated real-time booking functionalities, allowing users to easily schedule and manage their rides.",
+                        "Collaborated with the design team to maintain brand consistency and ensure a visually appealing interface.",
+                        "Employed best practices in web development to ensure fast load times and smooth navigation."
+                    ]
+                ],
             technologies: ["Html", "SCSS", "JavaScript", "Jquery"],
             imageUrl: "/projects-media/city-arrivals/main.webp",
             projectUrl: "https://cityarrivals.ca",
@@ -46,15 +177,23 @@ const initialState = {
             media: ['img1.png', 'img2.png']
         },
         {
-            title: "Portfolio Website",
-            subtitle: "My Personal Portfolio",
+            title: "MTLnation",
+            subtitle: "Vue.js Based Website",
             description:
-                "A personal portfolio website to showcase projects, skills, and experience.",
-            technologies: ["React", "TailwindCSS", "JavaScript", "Redux Toolkit"],
-            imageUrl: "/projects-media/portfolio/main.webp",
-            projectUrl: "http://moiezdev.com",
-            githubUrl: "https://github.com/moiezdev/my-portfolio-react",
-            media: ['img1.png', 'img2.png', 'img3.png']
+                [
+                    "MTLnation – Vue.js Web Platform",
+                    [
+                        "Built the site using Vue.js with a focus on keeping everything fast and responsive.",
+                        "Structured the pages as reusable Vue components, so it’s easier to maintain and extend later.",
+                        "Added dynamic sections like news, events, and media content with smooth transitions and animations.",
+                        "Integrated forms and interactive parts so users can connect, subscribe, or explore content without issues.",
+                        "Kept the design clean with consistent colors, fonts, and spacing to match the brand’s modern look."
+                    ]
+                ],
+            technologies: ["Vue.js", "JavaScript", "SCSS", "Bootstrap"],
+            imageUrl: "/projects-media/mtlnation/main.webp",
+            projectUrl: "https://mtlnation.com",
+            media: ["img1.png", "img2.png", "img3.png"]
         },
     ],
 };
