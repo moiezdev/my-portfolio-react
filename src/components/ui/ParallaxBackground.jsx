@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const ParallaxBackground = ({ imageUrl }) => {
+const ParallaxBackground = ({ imageUrl, className }) => {
   const bgRef = useRef(true);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const ParallaxBackground = ({ imageUrl }) => {
   return (
     <div
       ref={bgRef}
-      className="absolute top-0 left-0 w-full h-full -z-10 bg-no-repeat bg-cover"
+      className={`absolute top-0 left-0 w-full h-full -z-10 bg-no-repeat bg-cover ${className}`}
       style={{ backgroundImage: `url(${imageUrl})` }}
     ></div>
   );

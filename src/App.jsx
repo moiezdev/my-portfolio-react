@@ -29,7 +29,7 @@ function App() {
       <div>
         <Navbar />
         <div className="relative z-0 overflow-hidden">
-          <ParallaxBackground imageUrl={'/background.png'} />
+          <ParallaxBackground className={'max-md:hidden'} imageUrl={'/background.png'} />
           <Suspense fallback={<Loading />}>
             <ScrollToTop />
             <Routes>
