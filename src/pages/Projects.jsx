@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Card from '../components/ui/Card';
 import SectionTitle from '../components/ui/SectionTitle';
 import Transition from '../components/functions/Transition';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,36 +17,28 @@ const Projects = () => {
     if (!projects || projects.length === 0) return;
     cardsRef.current = cardsRef.current.slice(0, projects.length);
 
-    // Kill old triggers
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
-    // Magnetic hover effect
     cardsRef.current.forEach((card) => {
       const handleMouseMove = (e) => {
         const rect = card.getBoundingClientRect();
-        const offsetX = (e.clientX - (rect.left + rect.width / 2)) * 0.03; // smaller movement
+        const offsetX = (e.clientX - (rect.left + rect.width / 2)) * 0.03;
         const offsetY = (e.clientY - (rect.top + rect.height / 2)) * 0.03;
         gsap.to(card, {
           x: offsetX,
           y: offsetY,
-          duration: 0.5, // slightly slower
-          ease: 'power2.out',
-        });
-      };
-
-      const handleMouseLeave = () => {
-        gsap.to(card, {
-          x: 0,
-          y: 0,
           duration: 0.5,
           ease: 'power2.out',
         });
       };
 
+      const handleMouseLeave = () => {
+        gsap.to(card, { x: 0, y: 0, duration: 0.5, ease: 'power2.out' });
+      };
+
       card.addEventListener('mousemove', handleMouseMove);
       card.addEventListener('mouseleave', handleMouseLeave);
 
-      // Cleanup
       return () => {
         card.removeEventListener('mousemove', handleMouseMove);
         card.removeEventListener('mouseleave', handleMouseLeave);
@@ -59,15 +52,15 @@ const Projects = () => {
     <Transition>
       <section className="w-full px-4 py-12" id="projects">
         <div className="app-container mx-auto pt-[80px] md:py-[60px]">
-          {/* component title */}
           <SectionTitle hash={'/'} title="projects" />
           <p className="mt-[-20px] mb-[50px]">List of projects</p>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <div
+              <Link
                 key={index}
+                to={`/works/${project.id}`}
                 ref={(el) => (cardsRef.current[index] = el)}
-                className="will-change-transform"
+                className="will-change-transform cursor-pointer"
               >
                 <Card
                   title={project.title}
@@ -78,7 +71,7 @@ const Projects = () => {
                   image={project.imageUrl}
                   altText={`${project.title} image`}
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>

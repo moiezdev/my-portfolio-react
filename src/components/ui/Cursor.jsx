@@ -121,6 +121,7 @@ const Cursor = ({ color = '#FFFF00', size = 48 }) => {
   return (
     <div
       ref={cursorPointerRef}
+      className="max-md:hidden"
       style={{
         position: 'fixed',
         top: 0,

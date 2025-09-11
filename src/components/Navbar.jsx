@@ -19,18 +19,26 @@ const Navbar = () => {
   useEffect(() => {
     const handleTouchStart = (e) => {
       touchStartX.current = e.touches[0].clientX;
+
+      // Only allow swipe if the touch starts from the right edge (e.g., last 10% of the screen width)
+      const screenWidth = window.innerWidth;
+      if (touchStartX.current < screenWidth * 0.9) {
+        touchStartX.current = null; // Ignore touch if it doesn't start from the right edge
+      }
     };
 
     const handleTouchEnd = (e) => {
+      if (touchStartX.current === null) return; // Ignore if the touch didn't start from the right edge
+
       touchEndX.current = e.changedTouches[0].clientX;
       const deltaX = touchStartX.current - touchEndX.current;
 
       if (deltaX > 50) {
-        // swipe left → open menu
+        // Swipe left → open menu
         setNavOpen(true);
       }
       if (deltaX < -50) {
-        // swipe right → close menu
+        // Swipe right → close menu
         setNavOpen(false);
       }
     };
@@ -86,7 +94,7 @@ const Navbar = () => {
               />
             </svg>
           ) : (
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

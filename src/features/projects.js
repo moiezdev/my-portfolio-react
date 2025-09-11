@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     projects: [
         {
+            id: 'lms',
             title: "LMS",
             subtitle: "Learning Management System FullStack (Under Development)",
             description:
@@ -18,9 +19,10 @@ const initialState = {
             technologies: ["HTML", "SCSS", "JavaScript", "React", "Redux Toolkit", "Node.js", "Express", "MongoDB"],
             imageUrl: "/projects-media/lms/main.webp",
             githubUrl: "https://github.com/moiezdev/LMS",
-            media: ['img1.png', 'img2.png']
+            media: ['main.webp']
         },
         {
+            id: 'my-portfolio',
             title: "Portfolio Website",
             subtitle: "My Personal Portfolio",
             description:
@@ -38,9 +40,10 @@ const initialState = {
             imageUrl: "/projects-media/portfolio/main.webp",
             projectUrl: "http://moiezdev.com",
             githubUrl: "https://github.com/moiezdev/my-portfolio-react",
-            media: ['img1.png', 'img2.png', 'img3.png']
+            media: ['main.webp']
         },
         {
+            id: 'scmborba',
             title: "Scmborba",
             subtitle: "Social Services Website",
             description:
@@ -57,10 +60,10 @@ const initialState = {
             technologies: ["React", "TailwindCSS", "JavaScript", "Redux Toolkit"],
             imageUrl: "/projects-media/scmborba/main.webp",
             projectUrl: "http://scmborba.pt",
-            // githubUrl: "https://github.com/moiezdev/my-portfolio-react",
-            media: ['img1.png', 'img2.png', 'img3.png']
+            media: ['main.webp', 'img1.webp', 'img2.webp', 'img3.webp', 'img4.webp']
         },
         {
+            id: 'aa-tourism',
             title: "AATourism",
             subtitle: "Flight Booking Platform",
             description:
@@ -78,9 +81,10 @@ const initialState = {
             imageUrl: "/projects-media/aa-tourism/main.webp",
             projectUrl: "http://aatourism.ca/",
             githubUrl: "https://github.com/moiezdev/AAtourism",
-            media: ['img1.png', 'img2.png', 'img3.png', 'img4.png', 'img5.png']
+            media: ['main.webp', 'img1.webp', 'img2.webp', 'img3.webp', 'img4.webp']
         },
         {
+            id: 'docean-fisheries',
             title: "D’Ocean Fisheries",
             subtitle: "Seafood Supplier Website",
             description:
@@ -97,9 +101,10 @@ const initialState = {
             technologies: ["HTML", "CSS", "JavaScript"],
             imageUrl: "/projects-media/docean-fisheries/main.webp",
             projectUrl: "https://doceanfisheries.com/",
-            media: ["img1.png", "img2.png", "img3.png"]
+            media: ['main.webp']
         },
         {
+            id: 'gala-travels',
             title: "Gala Travels",
             subtitle: "Flight Booking Platform",
             description:
@@ -116,9 +121,10 @@ const initialState = {
             technologies: ["Nuxt 2", "Vue", "Buefy", "Bootstrap 5", "JavaScript", "SCSS", "Sabre"],
             imageUrl: "/projects-media/gala-travels/main.webp",
             githubUrl: "https://github.com/moiezdev/gala-saber",
-            media: ['img1.png', 'img2.png', 'img3.png']
+            media: ['main.webp', 'img1.webp']
         },
         {
+            id: 'mian-travels',
             title: "Mian's Travels",
             subtitle: "Flight Booking Platform",
             description:
@@ -135,9 +141,10 @@ const initialState = {
             technologies: ["Nuxt 2", "Vue", "Buefy", "Bootstrap 5", "JavaScript", "SCSS", "Sabre"],
             imageUrl: "/projects-media/mian-travels/main.webp",
             githubUrl: "https://github.com/moiezdev/MiansTravels",
-            media: ['img1.png', 'img2.png', 'img3.png']
+            media: ['main.webp', 'img1.webp']
         },
         {
+            id: 'ain-saas',
             title: "Ain Saas",
             subtitle: "Ecommerce Website",
             description:
@@ -154,9 +161,10 @@ const initialState = {
             technologies: ["HTML", "SCSS", "JavaScript"],
             imageUrl: "/projects-media/ain-saas/main.webp",
             projectUrl: "https://ain-saiss.ma",
-            media: ['img1.png', 'img2.png', 'img3.png']
+            media: ['main.webp', 'img1.webp', 'img2.webp', 'img3.webp']
         },
         {
+            id: 'city-arrivals',
             title: "City Arrivals",
             subtitle: "Luxry Car Rental",
             description:
@@ -173,10 +181,10 @@ const initialState = {
             technologies: ["Html", "SCSS", "JavaScript", "Jquery"],
             imageUrl: "/projects-media/city-arrivals/main.webp",
             projectUrl: "https://cityarrivals.ca",
-            // githubUrl: "moizdev/portfolio-website",
-            media: ['img1.png', 'img2.png']
+            media: ['main.webp', 'img1.webp', 'img2.webp']
         },
         {
+            id: 'mtlnation',
             title: "MTLnation",
             subtitle: "Vue.js Based Website",
             description:
@@ -193,7 +201,48 @@ const initialState = {
             technologies: ["Vue.js", "JavaScript", "SCSS", "Bootstrap"],
             imageUrl: "/projects-media/mtlnation/main.webp",
             projectUrl: "https://mtlnation.com",
-            media: ["img1.png", "img2.png", "img3.png"]
+            media: ['main.webp']
+        },
+        {
+            id: 'tdm',
+            title: "TDM",
+            subtitle: "Civil Engineering & Project Management Website",
+            description:
+                [
+                    "TDM – Engenharia & Gestão de Projetos",
+                    [
+                        "Developed the frontend for TDM’s corporate website, presenting the company’s civil engineering and project management services.",
+                        "Structured clear sections for services, projects, and contact, so visitors quickly understand what TDM offers.",
+                        "Made the site responsive, adapting well across desktop and mobile devices.",
+                        "Used a clean and professional design approach to reflect TDM’s reliability and technical expertise.",
+                        "Focused on keeping the site simple to navigate while aligning visuals with the company’s brand identity."
+                    ]
+                ],
+            technologies: ["HTML", "CSS", "JavaScript"],
+            imageUrl: "/projects-media/tdm/main.webp",
+            githubUrl: "https://github.com/moiezdev/tdm",
+            media: ['main.webp', "img1.webp", "img2.webp", "img3.webp", "img4.webp"]
+        },
+        {
+            id: 'joshua-portfolio',
+            title: "Joshua Portfolio",
+            subtitle: "Personal Portfolio Website",
+            description:
+                [
+                    "Joshua – Developer Portfolio (React.js)",
+                    [
+                        "Built a modern and responsive personal portfolio site for Joshua using React.js.",
+                        "Structured the site with reusable components to keep it easy to maintain and extend later.",
+                        "Added sections like About, Projects, and Contact, making the content flow simple and clear.",
+                        "Included smooth animations and transitions so the site feels more dynamic and engaging.",
+                        "Kept the design minimal and professional, highlighting Joshua’s skills and experience as a developer."
+                    ]
+                ],
+            technologies: ["React.js", "JavaScript", "CSS", "Bootstrap"],
+            imageUrl: "/projects-media/joshua-portfolio/main.webp",
+            projectUrl: "https://joshua-portfolio.com", // replace with real link
+            githubUrl: "https://github.com/moiezdev/joshua-portfolio",
+            media: ['main.webp']
         },
     ],
 };
