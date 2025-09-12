@@ -4,11 +4,12 @@ import Logo from '../ui/Logo';
 import FloatingDotBox from '../ui/animatedSvgs/FloatingDotBox';
 import Magnetic from '../ui/Magnetic';
 import LazyImage from '../ui/LazyImage';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
     <section className="flex flex-col items-center justify-center lg:max-h-[800px] gap-6 px-4 overflow-visible">
-      <div className="app-container mx-auto grid grid-cols-1 md:grid-cols-9 items-center justify-center gap-6 pt-[80px] md:pt-[123px] md:pb-[80px]">
+      <div className="app-container mx-auto grid grid-cols-1 md:grid-cols-9 items-center justify-center gap-6 pt-[80px] md:pt-[123px] md:pb-[80px] pb-[40px]">
         {/* right section */}
         <div className="md:col-span-5 flex flex-col gap-4 cursor-pointer cursor-white">
           <h1 className="text-xlarge font-semibold cursor-pointer cursor-white cursor-scale-2">
@@ -20,7 +21,9 @@ const Hero = () => {
             Specialities: React, Vue, Tailwind CSS, Node.js, Express and more. Let's build together!
           </p>
           <div>
-            <Button primary={true}>{'Contact me!!'}</Button>
+            <Link to="/contact">
+              <Button primary={true}>{'Contact me!!'}</Button>
+            </Link>
           </div>
         </div>
         <div className="md:col-span-4 flex flex-col align-middle relative">
