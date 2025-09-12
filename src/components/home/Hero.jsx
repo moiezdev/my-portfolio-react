@@ -51,8 +51,7 @@ const Hero = () => {
           <LazyImage
             src="/heroSection/hero-img.webp"
             alt="Moiz"
-            className="w-[80%] ml-auto mr-[10%] aspect-square"
-            wrapperClass="relative z-0 cursor-pointer cursor-white cursor-scale-1.5"
+            wrapperClass="relative z-0 cursor-pointer cursor-white cursor-scale-1.5 w-[80%] aspect-square mr-[10%] ml-auto"
           />
           <div className="absolute top-full left-1/2 -translate-x-1/2 border border-gray-a inline-flex items-center p-1 mx-auto cursor-pointer cursor-white w-max">
             <span className="bg-primary h-[16px] aspect-square inline-block mb-[-2px] mr-1"></span>

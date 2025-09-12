@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import SectionTitle from '../ui/SectionTitle';
 import { useSelector } from 'react-redux';
+import LazyImage from '../ui/LazyImage';
 
 const About = () => {
   const about = useSelector((state) => state.about.about);
@@ -21,8 +22,12 @@ const About = () => {
             ))}
           </div>
           <div className="md:col-span-4 order-1 md:order-2 relative">
-            {/* <div className="absolute w-full h-full bg-gray-b/30"></div> */}
-            <img className="w-full" src="/aboutSection/about-img.png" alt="" />
+            <LazyImage
+              wrapperClass="w-full h-full"
+              className="w-full object-cover grayscale-100"
+              src="/aboutSection/about-img.webp"
+              alt=""
+            />
           </div>
         </div>
       </div>

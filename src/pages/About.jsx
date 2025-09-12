@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Magnetic from '../components/ui/Magnetic';
 import Floating from '../components/ui/Floating';
 import Transition from '../components/functions/Transition';
+import LazyImage from '../components/ui/LazyImage';
 
 const About = () => {
   const skills = useSelector((state) => state.skills.skills);
@@ -28,8 +29,12 @@ const About = () => {
               ))}
             </div>
             <div className="md:col-span-4 order-1 md:order-2 relative">
-              {/* <div className="absolute w-full h-full bg-gray-b/30"></div> */}
-              <img className="w-full" src="/aboutSection/about-img.png" alt="" />
+              <LazyImage
+                wrapperClass="w-full h-full"
+                className="w-full object-cover grayscale-100"
+                src="/aboutSection/about-img.webp"
+                alt=""
+              />
             </div>
           </div>
 

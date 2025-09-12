@@ -36,31 +36,31 @@ const LazyImage = ({
 
   // GSAP fade-in once image loads
   useEffect(() => {
-    if (loaded && imgRef.current) {
-      gsap.to(imgRef.current, { opacity: 1, duration: 0, ease: 'power2.out' });
-      gsap.to(blurRef.current, {
-        opacity: 0,
-        duration: 0.6, // how smooth the fade is
-        delay: 0.3, // wait before starting fade
-        ease: 'power2.out',
-      });
+    if (loaded && imgRef.current && blurRef.current) {
+      gsap.to(imgRef.current, { opacity: 1, duration: 0.6, ease: 'power2.out' });
+      gsap.to(blurRef.current, { opacity: 0, duration: 0.6, ease: 'power2.out' });
     }
   }, [loaded]);
 
   return (
-    <div ref={containerRef} className={`relative overflow-hidden w-full h-full ${wrapperClass}`}>
-      {/* Shimmer placeholder */}
-      <div ref={blurRef} className="absolute bg-transparent top-0 left-0 w-full h-full z-10">
-        <img className={`${className} opacity-0 object-cover`} src={blurSrc} alt={blurSrc} />
-      </div>
+    <div ref={containerRef} className={`relative overflow-hidden ${wrapperClass}`}>
+      {/* Blur image - always present */}
+      <img
+        ref={blurRef}
+        src={blurSrc}
+        alt={`blur-${alt}`}
+        className={`${className} absolute top-0 left-0 object-cover w-full h-full`}
+        style={{ opacity: 1 }}
+      />
 
-      {/* Actual image */}
+      {/* Actual image - load lazily */}
       {isVisible && (
         <img
           ref={imgRef}
           src={src}
           alt={alt}
-          className={`${className} opacity-0 object-cover`}
+          className={`${className} absolute top-0 left-0 object-cover`}
+          style={{ opacity: 0 }}
           onLoad={() => setLoaded(true)}
           loading="lazy"
         />

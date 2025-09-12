@@ -118,7 +118,12 @@ export default function ImageSlider({ images = [] }) {
               className="flex-shrink-0 w-full h-full flex items-center justify-center bg-[var(--color-white)]"
               style={{ position: 'absolute', top: 0, left: 0 }}
             >
-              <LazyImage src={src} alt={`Slide ${i + 1}`} className="w-full h-full object-cover" />
+              <LazyImage
+                src={src}
+                alt={`Slide ${i + 1}`}
+                className="object-cover"
+                wrapperClass="w-full h-full"
+              />
             </div>
           ))}
         </div>
