@@ -53,7 +53,7 @@ const Projects = () => {
       <section className="w-full px-4 py-12" id="projects">
         <div className="app-container mx-auto pt-[20px] md:py-[60px]">
           <SectionTitle hash={'/'} title="projects" />
-          <p className="mt-[-20px] md:mb-[50px]">List of projects</p>
+          <p className="mt-[-20px] md:mb-[50px] max-md:mb-6">List of projects</p>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
               <Link

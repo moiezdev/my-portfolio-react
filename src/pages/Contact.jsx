@@ -10,7 +10,7 @@ const Contact = () => {
         <div className="app-container mx-auto pt-[30px] md:py-[60px]">
           {/* component title */}
           <SectionTitle hash={'/'} title="contacts" />
-          <p className="mt-[-20px] md:mb-[50px]">
+          <p className="mt-[-20px] md:mb-[50px] max-md:mb-6">
             Contact me for professional advice, free of charge!
           </p>
           <ContactSection />
