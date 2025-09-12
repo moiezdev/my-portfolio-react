@@ -16,13 +16,14 @@ export default function ProjectDetail() {
       <section className="w-full px-4 py-12" id="projects">
         <div className="app-container mx-auto pt-[30px] md:py-[60px]">
           {/* Title & subtitle */}
-          <SectionTitle hash={'/'} title={project.title} />
+          <SectionTitle hash={'/'} title={project.title} buttonText="back to works" link="/works" />
           <p className="mt-[-20px] md:mb-[50px]">{project.subtitle}</p>
 
           <div className="grid gap-8 md:grid-cols-2">
             {/* Left: slider */}
-            <div className="w-full">
+            <div className="w-full cursor-pointer cursor-white cursor-scale-3">
               <ImageSlider
+                className="cursor-pointer cursor-white cursor-scale-3"
                 images={project.media.map(
                   (img) => project.imageUrl.split('/').slice(0, -1).join('/') + '/' + img
                 )}
@@ -30,18 +31,21 @@ export default function ProjectDetail() {
             </div>
 
             {/* Right: details */}
-            <div className="w-full flex flex-col gap-4 cursor-pointer cursor-white cursor-scale-2">
+            <div className="w-full flex flex-col gap-4">
               {/* Description */}
               <div className="leading-relaxed space-y-2">
                 {project.description.map((line, i) =>
                   Array.isArray(line) ? (
-                    <ul key={i} className="list-disc list-inside">
+                    <ul
+                      key={i}
+                      className="list-disc list-inside cursor-pointer cursor-white cursor-scale-2"
+                    >
                       {line.map((item, j) => (
                         <li key={j}>{item}</li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-large" key={i}>
+                    <p className="text-large cursor-pointer cursor-white cursor-scale-2" key={i}>
                       {line}
                     </p>
                   )

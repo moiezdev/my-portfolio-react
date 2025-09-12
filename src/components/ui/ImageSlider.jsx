@@ -167,16 +167,20 @@ export default function ImageSlider({ images = [] }) {
 
         {/* Dots */}
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => go(i, i > idx ? 'next' : 'prev')}
-              className={`w-3 h-3 ${
-                i === idx ? 'bg-[var(--color-gray-b)]' : 'bg-[var(--color-gray-a)]'
-              }`}
-              style={{ borderRadius: 0 }}
-            />
-          ))}
+          {images.length > 1 && (
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => go(i, i > idx ? 'next' : 'prev')}
+                  className={`w-3 h-3 ${
+                    i === idx ? 'bg-[var(--color-gray-b)]' : 'bg-[var(--color-gray-a)]'
+                  }`}
+                  style={{ borderRadius: 0 }}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
