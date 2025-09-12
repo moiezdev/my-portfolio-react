@@ -7,10 +7,10 @@ const Contact = () => {
   return (
     <section className="w-full px-4 py-12" id="projects">
       <Transition>
-        <div className="app-container mx-auto pt-[80px] md:py-[60px]">
+        <div className="app-container mx-auto pt-[30px] md:py-[60px]">
           {/* component title */}
           <SectionTitle hash={'/'} title="contacts" />
-          <p className="mt-[-20px] mb-[50px]">
+          <p className="mt-[-20px] md:mb-[50px]">
             Contact me for professional advice, free of charge!
           </p>
           <ContactSection />

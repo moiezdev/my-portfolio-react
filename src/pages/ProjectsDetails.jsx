@@ -4,24 +4,20 @@ import { useSelector } from 'react-redux';
 import Transition from '../components/functions/Transition';
 import ImageSlider from '../components/ui/ImageSlider';
 import Button from '../components/ui/Button';
+import SectionTitle from '../components/ui/SectionTitle';
 
 export default function ProjectDetail() {
   const { id } = useParams();
   const projects = useSelector((state) => state.projects.projects);
   const project = projects.find((p) => p.id === id);
-
   if (!project) return <p className="p-6">Project not found.</p>;
-
   return (
     <Transition>
       <section className="w-full px-4 py-12" id="projects">
-        <div className="app-container mx-auto pt-[80px] md:py-[60px]">
+        <div className="app-container mx-auto pt-[30px] md:py-[60px]">
           {/* Title & subtitle */}
-          <h1 className="text-3xl">
-            <span className="text-primary">/</span>
-            {project.title}
-          </h1>
-          <p className="text-[var(--color-gray-a)] mt-1 mb-6">{project.subtitle}</p>
+          <SectionTitle hash={'/'} title={project.title} />
+          <p className="mt-[-20px] md:mb-[50px]">{project.subtitle}</p>
 
           <div className="grid gap-8 md:grid-cols-2">
             {/* Left: slider */}
@@ -34,7 +30,7 @@ export default function ProjectDetail() {
             </div>
 
             {/* Right: details */}
-            <div className="w-full flex flex-col gap-4">
+            <div className="w-full flex flex-col gap-4 cursor-pointer cursor-white cursor-scale-2">
               {/* Description */}
               <div className="leading-relaxed space-y-2">
                 {project.description.map((line, i) =>

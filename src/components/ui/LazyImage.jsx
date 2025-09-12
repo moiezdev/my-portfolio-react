@@ -59,7 +59,7 @@ const LazyImage = ({
           ref={imgRef}
           src={src}
           alt={alt}
-          className={`${className} absolute top-0 left-0 object-cover`}
+          className={`${className} absolute top-0 left-0 object-cover w-full h-full`}
           style={{ opacity: 0 }}
           onLoad={() => setLoaded(true)}
           loading="lazy"

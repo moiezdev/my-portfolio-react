@@ -115,14 +115,14 @@ export default function ImageSlider({ images = [] }) {
           {images.map((src, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-full h-full flex items-center justify-center bg-[var(--color-white)]"
+              className="flex-shrink-0 w-full h-full flex items-center justify-center bg-[var(--color-white)] courser-pointer cursor-white cursor-scale-3"
               style={{ position: 'absolute', top: 0, left: 0 }}
             >
               <LazyImage
                 src={src}
                 alt={`Slide ${i + 1}`}
                 className="object-cover"
-                wrapperClass="w-full h-full courser-pointer cursor-white cursor-scale-3"
+                wrapperClass="w-full h-full"
               />
             </div>
           ))}

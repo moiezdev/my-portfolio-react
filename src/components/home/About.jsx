@@ -4,6 +4,8 @@ import SectionTitle from '../ui/SectionTitle';
 import { useSelector } from 'react-redux';
 import LazyImage from '../ui/LazyImage';
 import Floating from '../ui/Floating';
+import Magnetic from '../ui/Magnetic';
+import FloatingDotBox from '../ui/animatedSvgs/FloatingDotBox';
 
 const About = () => {
   const about = useSelector((state) => state.about.about);
@@ -23,7 +25,25 @@ const About = () => {
             ))}
           </div>
           <div className="md:col-span-4 order-1 md:order-2 relative">
-            <Floating className="w-full h-full">
+            <div className="absolute top-0 right-1">
+              <Magnetic strength={0.1} duration={0.5}>
+                <FloatingDotBox animate={true} dotSize={2} rows={4} cols={5} duration={9} />
+              </Magnetic>
+            </div>
+
+            <div className="absolute top-1/3 left-2 translate-x -translate-y-1/2">
+              <Magnetic strength={0.1} duration={0.5}>
+                <FloatingDotBox
+                  animate={true}
+                  dotSize={2}
+                  rows={7}
+                  cols={7}
+                  duration={12}
+                  floatDistance={8}
+                />
+              </Magnetic>
+            </div>
+            <Floating className="w-full h-full max-md:aspect-5/6 md:aspect-auto max-md:pb-6">
               <LazyImage
                 wrapperClass="w-full h-full"
                 className="w-full object-cover grayscale-100 cursor-pointer cursor-white cursor-scale-3"
