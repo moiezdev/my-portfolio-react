@@ -122,7 +122,7 @@ export default function ImageSlider({ images = [] }) {
                 src={src}
                 alt={`Slide ${i + 1}`}
                 className="object-cover"
-                wrapperClass="w-full h-full"
+                wrapperClass="w-full h-full courser-pointer cursor-white cursor-scale-3"
               />
             </div>
           ))}

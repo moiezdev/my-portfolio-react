@@ -1,10 +1,13 @@
+import { useSelector } from 'react-redux';
+
+// ---- Component import -----
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
-import { useSelector } from 'react-redux';
-import Magnetic from '../components/ui/Magnetic';
 import Floating from '../components/ui/Floating';
+import Magnetic from '../components/ui/Magnetic';
 import Transition from '../components/functions/Transition';
 import LazyImage from '../components/ui/LazyImage';
+import { Component } from 'react';
 
 const About = () => {
   const skills = useSelector((state) => state.skills.skills);
@@ -29,12 +32,14 @@ const About = () => {
               ))}
             </div>
             <div className="md:col-span-4 order-1 md:order-2 relative">
-              <LazyImage
-                wrapperClass="w-full h-full"
-                className="w-full object-cover grayscale-100"
-                src="/aboutSection/about-img.webp"
-                alt=""
-              />
+              <Floating className="w-full h-full">
+                <LazyImage
+                  wrapperClass="w-full h-full"
+                  className="w-full object-cover grayscale-100 cursor-pointer cursor-white cursor-scale-3"
+                  src="/aboutSection/about-img.webp"
+                  alt=""
+                />
+              </Floating>
             </div>
           </div>
 

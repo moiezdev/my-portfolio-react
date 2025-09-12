@@ -3,6 +3,7 @@ import Button from '../ui/Button';
 import SectionTitle from '../ui/SectionTitle';
 import { useSelector } from 'react-redux';
 import LazyImage from '../ui/LazyImage';
+import Floating from '../ui/Floating';
 
 const About = () => {
   const about = useSelector((state) => state.about.about);
@@ -22,12 +23,14 @@ const About = () => {
             ))}
           </div>
           <div className="md:col-span-4 order-1 md:order-2 relative">
-            <LazyImage
-              wrapperClass="w-full h-full"
-              className="w-full object-cover grayscale-100"
-              src="/aboutSection/about-img.webp"
-              alt=""
-            />
+            <Floating className="w-full h-full">
+              <LazyImage
+                wrapperClass="w-full h-full"
+                className="w-full object-cover grayscale-100 cursor-pointer cursor-white cursor-scale-3"
+                src="/aboutSection/about-img.webp"
+                alt=""
+              />
+            </Floating>
           </div>
         </div>
       </div>
