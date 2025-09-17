@@ -85,8 +85,8 @@ const ContactSection = () => {
     label: {
       default: {
         outlined: {
-          sm: 'peer-focus:text-primary peer-focus:bg-gray-b bg-transparent dark:bg-transparent text-gray-a text-normal',
-          md: 'peer-focus:text-primary peer-focus:bg-gray-b bg-transparent dark:bg-transparent text-gray-a text-normal',
+          sm: 'peer-focus:text-primary peer-focus:bg-gray-b peer-placeholder-shown:bg-gray-b bg-gray-b dark:bg-transparent text-gray-a text-normal ',
+          md: 'peer-focus:text-primary peer-focus:bg-gray-b peer-placeholder-shown:bg-gray-b bg-gray-b dark:bg-transparent text-gray-a text-normal ',
         },
       },
     },
@@ -187,8 +187,8 @@ const ContactSection = () => {
                   ></textarea>
                   <label
                     htmlFor="contactMessage"
-                    className="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 px-2 text-sm transition-transform duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-primary peer-focus:bg-gray-b
-                     bg-transpatent text-gray-a text-normal"
+                    className="absolute left-1 top-2 z-10 origin-[0] -translate-y-4 scale-75 px-2 text-sm transition-transform duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-primary peer-focus:bg-gray-b peer-placeholder-shown:bg-gray-b
+                     bg-gray-b text-gray-a text-normal"
                   >
                     Your Message Here
                   </label>
