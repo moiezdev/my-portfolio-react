@@ -4,7 +4,7 @@ const initialState = {
 
         {
             id: 'eims',
-            title: "EIMS",
+            title: "EIMS (Backend)",
             subtitle: "Learning Management System FullStack (Under Development)",
             description:
                 [
