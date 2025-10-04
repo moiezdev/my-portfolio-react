@@ -4,11 +4,11 @@ const initialState = {
     skills: [
         {
             category: 'Programming Languages',
-            items: ['JavaScript', 'TypeScript', 'Python'],
+            items: ['JavaScript', 'TypeScript', 'C# (C Sharp)', 'Python'],
         },
         {
             category: 'Frameworks & Libraries',
-            items: ['React', 'Vue', 'NextJs', 'NuxtJs', 'TailwindCSS', 'MaterialUI', 'Node', 'Express'],
+            items: ['React', 'Vue', 'NextJs', 'NuxtJs', 'ASP.NET', 'DotNet', 'Node', 'Express', 'TailwindCSS', 'MaterialUI'],
         },
         {
             category: 'Databases',
