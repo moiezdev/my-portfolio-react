@@ -1,6 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     projects: [
+
+        {
+            id: 'eims',
+            title: "EIMS",
+            subtitle: "Learning Management System FullStack (Under Development)",
+            description:
+                [
+                    "EIMS – Educational Institutes Management System",
+                    [
+                        "This is my own project to make learning easier online, with features like dashboards, progress tracking, and track records of learners.",
+                        "Working on microsoft entity framework to make the backend more robust and scalable.",
+                    ]
+                ],
+            technologies: ["ASP.NET Core", "C#", "Entity Framework", "PostgreSQL Server"],
+            imageUrl: "/projects-media/eims/main.webp",
+            githubUrl: "https://github.com/moiezdev/EIMS",
+            media: ['main.webp']
+        },
         {
             id: 'lms',
             title: "LMS",
