@@ -16,7 +16,7 @@ const initialState = {
                 ],
             technologies: ["ASP.NET Core", "C#", "Entity Framework", "PostgreSQL Server"],
             imageUrl: "/projects-media/eims/main.webp",
-            githubUrl: "https://github.com/moiezdev/EIMS",
+            githubUrl: "https://github.com/moiezdev/EIMS.WebAPI",
             media: ['main.webp']
         },
         {
