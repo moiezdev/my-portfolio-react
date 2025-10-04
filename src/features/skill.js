@@ -8,7 +8,7 @@ const initialState = {
         },
         {
             category: 'Frameworks & Libraries',
-            items: ['React', 'Vue', 'NextJs', 'NuxtJs', 'ASP.NET', 'DotNet', 'Node', 'Express', 'TailwindCSS', 'MaterialUI'],
+            items: ['React', 'Vue', 'NextJs', 'NuxtJs', 'ASP.NET', 'DotNET', 'Node', 'Express', 'TailwindCSS', 'MaterialUI'],
         },
         {
             category: 'Databases',
